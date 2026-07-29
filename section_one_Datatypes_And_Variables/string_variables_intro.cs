@@ -26,5 +26,13 @@ WriteLine(
 );
 #endregion
 
+#region concatination in a string
+int myba = 67;
+string myfullname = "saad\t" + "admed\t" + myba;
+WriteLine(myfullname); 
+#endregion
 
+#region string interpolation
+WriteLine($"hello {myfullname} I think you like {67}");
 ReadKey();
+#endregion
