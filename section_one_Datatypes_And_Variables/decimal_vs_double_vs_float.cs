@@ -9,9 +9,6 @@ WriteLine(myDoubleNumber);
 #region decimal
 WriteLine("here is the decimal");
 decimal myDecimalNumber= decimal.Parse(ReadLine() ?? "0");
-// #pragma warning disable 
-decimal sampleNumber = 12.23M;
-// #pragma warning enable 
 WriteLine(myDecimalNumber);
 #endregion
 #region double vs decimal
@@ -47,4 +44,10 @@ WriteLine("\n\n\n\n\n not knowing this was The inaccuracy caused it to fail to t
 #endregion
 
 #region Float
+WriteLine("here is the float");
+float price = 19.99f;
+WriteLine(price);
+WriteLine(float.MaxValue);
+WriteLine(float.NegativeInfinity);
+
 #endregion

@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("basic_addition_calculator")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+5caa9016f5b3c24d3d916af54c38f61a30cb1135")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+e1520e671ba1ae7aed26f3cb213b024eaeb7d1b1")]
 [assembly: System.Reflection.AssemblyProductAttribute("basic_addition_calculator")]
 [assembly: System.Reflection.AssemblyTitleAttribute("basic_addition_calculator")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
