@@ -34,5 +34,6 @@ WriteLine(myfullname);
 
 #region string interpolation
 WriteLine($"hello {myfullname} I think you like {67}");
-ReadKey();
 #endregion
+
+ReadKey();

@@ -115,13 +115,3 @@ var resultOfOperation = firstOperand "firstOperator" secondOperand "secondOperat
 | `? :`                                                              | Conditional-expression           | Right to left |
 | `=` `*=` `/=` `%=`  `+=` `-=` `<<=` `>>=` `&=`  `^=` `\|=`         | Simple and compound assignment 2 | Right to left |
 | `,`                                                                | Sequential evaluation            | Left to right |
-
-## operator categories
-
-> Of course, it is worth noting that operators are actually categorized into 5 main categories, which are:
-
-1. **Arithmetic Operations**: `+`, `-`, `*`, `/`, `%`, `++`, `--`
-2. **Comparison and Logic**: `==`, `!=`, `>`, `<`, `&&`, `||`, `!`
-3. **Null-Safety**: `??`, `??=`, `?.`
-4. **Type-testing and Casting**: `is`, `as`, `typeof`, `sizeof`
-5. **Lambda operator**: `=>`
