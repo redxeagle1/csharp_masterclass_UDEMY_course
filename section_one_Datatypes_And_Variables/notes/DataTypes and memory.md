@@ -32,14 +32,3 @@ the variable here stores the memory refernce of the data not the data direcly.
 - common example : `class array string`
 - when copying this refrence type of a data type it will just copy the memory address of the data so we will then have two variable pointing to thee same data
 ![pictural representation of reference](imgs/pictural_representation_of_reference.png)
-
-### implicit and explicit typed variable
-
-- explicit typed variable is defining the vaiable's type explicitly i.e. `int a = 3`
-- implicit typed variable is defining the vaiable's type based on the given value if it's a `""` then the type is string and it's done by using the `var` keyword and it's only recommended when the variable type is clear like if you see integer number then it's and integer...etc and a usage example is
-
-```c#
-var myNumber = 67;
-```
-
-- hovering on the name or printing the type of the variable will tell you it's an integer
