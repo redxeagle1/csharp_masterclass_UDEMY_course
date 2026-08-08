@@ -31,7 +31,7 @@ if (isOk && !isNotOk)
 }
 ```
 
-### special if notes
+### special `if` notes
 
 #### return gaurds
 

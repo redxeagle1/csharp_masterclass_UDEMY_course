@@ -9,6 +9,7 @@
 > bool isOk = true;
 > ```
 >
+> and there default value is `false` unless you specify it with something else
 
 - the usage of boolean expression is connected with decisions and condition
 - boolean expression can be categoriesed into
@@ -22,12 +23,3 @@
   - **compound expression** : mixing between the ogical operators and comparative operators
 
 > unlike python, php or javascript the c# language doesn't have Implicit conversions from text/numbers to bool are forbidden. YOU MUST compare to get the `bool` value
-
-### logical operators
-
-- although we mentioned that c# does have `AND`, `OR`, `NOT` and `XOR`  logical operators but c# doesn't express them literally instead it represent them in form or `&&`, `||`, `!` and  `^` respectively where used as mentioned earlier to make complex decision making
-
->- C# has the 3 sets these boolean operators.
->   - `&` `|` `!`: Boolean operators over bits
->   - `&&` `||` `!`: Boolean operators over bool
->   - `and` `or` `not`: Boolean operators over patterns matching
