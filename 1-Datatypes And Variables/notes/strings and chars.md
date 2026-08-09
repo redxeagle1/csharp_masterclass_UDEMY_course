@@ -44,10 +44,13 @@ Console.WriteLine(myFullName);
 Console.WriteLine($"hello {myFullName} I think you like {myAge}"); 
 ```
 
+### escape characters
+
 - there special set of characters in strings called calles escape character these are always prefixed with a backslash `\` example of that is
   - when you try to write a `"` inside a string you will get an error to prefix it with a `\` like that `\"`
   - when you try to write a `\` inside a string you will get an error to prefix it with a `\` like that `\\`
 - if you really don't want to use this entirely you should use verbitam string which are special types of strings that can take the escape character with the need of `\` or escpaing it an example of this section is
+- `\n` which is a `newline` is a unix based thing it's better to use the carrage return or `\r`
 
 ```c#
 // string myNeatVar = "eh, sam said "am a very irogent man""; this is a clear error
