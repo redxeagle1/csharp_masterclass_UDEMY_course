@@ -35,12 +35,12 @@ else
 if (answer != 1)
 {
     WriteLine("incorrect answer you lost 1 point");
-    score -= 1;
+    score--;
 }
 else
 {
     WriteLine("correct answer you earn 1 point");
-    score += 1;
+    score++;
 
 }
 
@@ -56,23 +56,23 @@ switch (user_answer2)
 {
     case 'a':
         WriteLine("correct answer you earn 1 point");
-        score += 1;
+        score++;
         break;
     case 'b':
         WriteLine("incorrect answer you lost 1 point");
-        score -= 1;
+        score--;
         break;
     case 'c':
         WriteLine("incorrect answer you lost 1 point");
-        score -= 1;
+        score--;
         break;
     case 'd':
         WriteLine("incorrect answer you lost 1 point");
-        score -= 1;
+        score--;
         break;
     default:
         WriteLine("incorrect answer you lost 1 point");
-        score -= 1;
+        score--;
         break;
 }
 WriteLine($"your current score is {score}");
@@ -82,15 +82,15 @@ WriteLine($"your current score is {score}");
 #region question 3
 WriteLine($"{question3,-10}\nyou can only answer with a color\t\t");
 string user_answer3 = ReadLine() ?? "";
-if (user_answer3.ToLower() != answer3.ToLower())
+if (user_answer3.Trim().ToLower() != answer3.ToLower())
 {
     WriteLine("incorrect answer you lost 1 point");
-    score -= 1;
+    score--;
 }
 else
 {
     WriteLine("correct answer you earn 1 point");
-    score += 1;
+    score++;
 }
 WriteLine($"your current score is {score}");
 

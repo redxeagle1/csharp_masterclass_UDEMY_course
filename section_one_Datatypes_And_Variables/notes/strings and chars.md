@@ -53,3 +53,14 @@ Console.WriteLine($"hello {myFullName} I think you like {myAge}");
 string myNeatVar = "eh, sam said \"am a very irogent man\"";  // this is escaping
 myNeatVar = @"eh, sam said \' irogent man"; 
 ```
+
+### string operation
+
+- string does have built-in funcitons to manipulate it here some of them
+
+- `string.Trim()`: remove all the white speces form the end `string.TrimEnd()` and from the begining `string.TrimStart()`
+  - for exmple if we have `"        jwk         "` => `"jwk"`
+
+- `string.ToLower()`: turn all the letters of a string to lower case and it's contradiction method is `string.ToUpper()`
+
+> you can chaing function i.e. `string.Trim().ToLower()`
