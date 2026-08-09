@@ -12,6 +12,7 @@ Writeline(hamada)
 
 ## string datatype
 
+- **string are array** of `char` element meaning you can manipulate them as if you are manipulating `array` such accessing a letter through it's index like `string[0]`
 - **String Literals:** Variables declared with the `string` type only hold text (string literals).
 - **Concatenation:** You can join strings together or with other data types (like integers) using the `+` operator. Formatting characters like `\t` can be injected for spacing.
 - **String Interpolation:** Prefixing a string with `$` allows you to embed variables and expressions directly inside curly braces `{}`. This is often cleaner and more readable than standard concatenation.
@@ -28,7 +29,7 @@ Writeline(hamada)
 
   2. using through the `WriteLine` args
 
-> if you added `$$` you will have  to embed in double curly braces `{{}}` and if the `$` increases the `{` will increase respectively
+  > if you added `$$` you will have  to embed in double curly braces `{{}}` and if the `$` increases the `{` will increase respectively
 
 ```csharp
 int myAge = 67;
@@ -64,3 +65,5 @@ myNeatVar = @"eh, sam said \' irogent man";
 - `string.ToLower()`: turn all the letters of a string to lower case and it's contradiction method is `string.ToUpper()`
 
 > you can chaing function i.e. `string.Trim().ToLower()`
+
+- `string.Length`: print our the lenght of the string
