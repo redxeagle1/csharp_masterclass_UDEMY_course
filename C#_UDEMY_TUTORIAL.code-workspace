@@ -1,11 +1,16 @@
 {
 	"folders": [
 		{
-			"path": "section_one_Datatypes_And_Variables"
+			"path": "1-Datatypes And Variables"
 		},
 		{
-			"path": "section_two_making_decisions"
+			"path": "2-making decisions"
+		},
+		{
+			"path": "3-loops and arrays"
 		}
 	],
-	"settings": {}
+	"settings": {
+    "terminal.integrated.cwd": "${workspaceFolder}/.."
+  }
 }

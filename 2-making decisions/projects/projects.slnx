@@ -1,4 +1,5 @@
 <Solution>
   <Project Path="guess_the_number/guess_the_number.csproj" />
+  <Project Path="mini_calculator/mini_calculator.csproj" />
   <Project Path="quiz_project/quiz_project.csproj" />
 </Solution>
