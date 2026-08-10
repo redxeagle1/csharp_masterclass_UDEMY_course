@@ -33,14 +33,6 @@ for (int i = 0; i < 10; i++)
 }
 ```
 
-- while loops
-
-```c#
-while (true)
-{
-    
-}
-```
 
 - do while loops
 
@@ -57,5 +49,18 @@ do
 foreach (var item in collection)
 {
     
+}
+```
+
+## while loop
+
+- while loops : repeat based on a condition and stops the moment it doesn't get satisfied
+  - you can use it as `for loop` which isn't conventient and can result in infinit loop
+  - or conditional which better use it for
+
+```c#
+while (condition)
+{
+    // block to execute 
 }
 ```
