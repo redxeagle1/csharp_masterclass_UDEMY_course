@@ -33,15 +33,7 @@ for (int i = 0; i < 10; i++)
 }
 ```
 
-
-- do while loops
-
-```c#
-do
-{
-    
-} while (true);
-```
+## foreach
 
 - foreach loops
 
@@ -55,8 +47,12 @@ foreach (var item in collection)
 ## while loop
 
 - while loops : repeat based on a condition and stops the moment it doesn't get satisfied
+- you can understand it as `until` this condition is met `do` the following logic
+- `While` checks the condition then execute
   - you can use it as `for loop` which isn't conventient and can result in infinit loop
-  - or conditional which better use it for
+  - conditional which better use it for
+- you can stop the loop entirely using the `break` keyword
+- you can ignore an iteration using the `continue` keyword
 
 ```c#
 while (condition)
@@ -64,3 +60,52 @@ while (condition)
     // block to execute 
 }
 ```
+
+> - there is a special form of `while` where it ***executes*** the code ***then checks*** the condition which is called `do-while` loop
+> - do while loops>
+>
+> ```c#
+> do
+> {
+>     
+> } while (condition);
+> ```
+>
+> - a clear example of its effect is when you print something for 10 times and this loop will print it 11 times aka 1 extra time of execution
+
+## labeling
+
+- looping through an explicit label and c# currently depends on the `goto` statement fot=r hat though it isn't a best practise or a good advice to do so since it's more error prone
+- a basic goto example will be
+
+```C#
+int a = 0;
+hamada:
+WriteLine("what am I doing {0}",a);
+if (a != 5){
+    a++;
+    goto hamada;
+}
+else
+    WriteLine("ending the program");
+```
+
+> - in c# 15, c# will support Labelled break and continue statements and the ide it self will suggest you to use it instead of relaying on `goto` in `for`, `while` loops and in `switch` cases
+> - an example of the code will be written is
+>
+> ```C#
+> outerLoop: 
+> for (int x = 0; x < xMax; x++) 
+> {
+>     for (int y = 0; y < yMax; y++) 
+>     {
+>         if (ShouldSkipRest(x, y)) 
+>             continue outerLoop; // Skips to the next iteration of the outer loop
+> 
+>         if (ShouldExitAll(x, y)) 
+>             break outerLoop; // Breaks completely out of the outer loop
+>     }
+> }
+> ```
+>
+> I feel this feature is gonna be great one
