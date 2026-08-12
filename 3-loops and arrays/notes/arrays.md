@@ -39,3 +39,32 @@
     > double firstElement = myDoubleArray[0]; // Accesses the number 12
     > int size = myDoubleArray.Length; // Returns 5
     > ```
+
+- to access an action on all the element of an array you have to use loops either by useing:
+    1. `foreach` loops
+
+        > an example of that is
+        >
+        > ```c#
+        > string[] weekDays = ["sunday","monday","tuesday","wendnesday","thrusday","friday","saturday"];
+        > foreach (var item in weekDays)
+        > {
+        > WriteLine($"{item} is in weekDays");
+        > }
+        > ```
+        >
+        > you are dealing with the element itself which is less error prone and alot safer
+
+    2. `for` loops : this consider the more classic way of accessing all the elements
+
+        > an example that is
+        >
+        > ```c#
+        > double[] myDoubleArray2 = [12,21,21.3,21,21,12.4,132.23,21.3]; 
+        > for (int index = 0; index < myDoubleArray2.Length; index++)
+        > {
+        >     WriteLine($"{myDoubleArray2[index]} is in {nameof(myDoubleArray2)}");
+        > }
+        > ```
+        >
+        > - since you are dealing with the size itself it will be much more error prone and less safer

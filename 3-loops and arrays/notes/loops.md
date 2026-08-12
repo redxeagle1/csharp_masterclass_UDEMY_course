@@ -35,12 +35,13 @@ for (int i = 0; i < 10; i++)
 
 ## foreach
 
-- foreach loops
+- foreach loops : are special type of `for` loops where it iterate sequentially through each item in a collection withou the the need to use its index
+- a typical example of that is itrating through arrays
 
 ```c#
 foreach (var item in collection)
 {
-    
+    // do something
 }
 ```
 
