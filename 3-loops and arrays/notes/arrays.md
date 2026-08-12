@@ -1,10 +1,11 @@
-## arrays <!-- markdownlint-disable-line -->
+# arrays
 
 - `array`: A data structure capable of storing multiple variables of the same type (like an array of strings).
 - Arrays are fixed-size (static) structures with a length specified when they are instantiated.
 - Because an array has a fixed size, you must use `Array.Resize(ref YOUR_ARRAY, new_size);` to resize it. This has low performance since it requires allocating a new array and copying all elements every time you call it.
+- The trailing comma after the last item in the `switch` , `arrays` etc expression is optional and the compiler will not complain about it.
 
-### Declaring and Instantiating Arrays
+## Declaring and Instantiating Arrays
 
 - Declaring an array means specifying its type, while instantiating it allocates the memory for its size.
   
@@ -26,7 +27,7 @@
     > float[] myFloatArray = [12, 21, 21.3f, 21, 21]; // Initialization (note the 'f' for float)
     > ```
 
-### Indexing
+## Indexing
 
 - Array indexing starts at `0` and goes up to `(array size) - 1`.
 - Accessing an index outside of this defined range will throw an `IndexOutOfRangeException` at **runtime**.
@@ -68,3 +69,173 @@
         > ```
         >
         > - since you are dealing with the size itself it will be much more error prone and less safer
+
+## multi-dimensional arrays
+
+- working with multi dimesional arrays is like working with tables and grids
+- you can declare multi dimensional arrays through the same workflow of the single dimensional arrays as the following
+- as for 2d arrays
+
+    > 1. declaration
+    >
+    > ```c#
+    > TYPE[,] my2dArray = new TYPE[col_size,row_size];
+    > ```
+    >
+    > - you can then assign value using indexing `my2dArray[0,0] = 1` following this table
+    >   > supposing that `my2dArray`'s `col_size` = 3 and `row_size` = 3 also
+    >
+    >    | row/col   | 0        | 1    | 2    |
+    >    | --------- | -------- | ---- | ---- |
+    >    | 0         | 1        | 0    | 0    |
+    >    | 1         | 0        | 0    | 0    |
+    >    | 2         | 0        | 0    | 0    |
+    >
+    > 2. initialization <!-- markdownlint-disable-line -->
+    >
+    > ```c#
+    > int[,] myTwoDimensionalArrays= {    {1,3,4},    {8,0,23},   {12,29,15}  };
+    > ```
+    >
+    > - you can then over-write the value using indexing `my2dArray[0,0] = 1` or access it following this table
+    >
+    >    | row/col   | 0      | 1     | 2     |
+    >    | --------- | ------ | ----- | ----- |
+    >    | 0         | 1      | 3     | 12    |
+    >    | 1         | 8      | 0     | 29    |
+    >    | 2         | 12     | 23    | 15    |
+
+- as for 3D arrays
+    >
+    >```c#
+    >// declared 3D Array
+    >int[,,] array3DDeclaration = new int[3, 3, 3];
+    >
+    >// initialized 3D Array
+    >string[,,] simple3DArray =
+    >{
+    >    {
+    >        {"000", "001"},
+    >        {"010", "011" }
+    >    },
+    >    {
+    >        {"100", "101"},
+    >        {"110", "111"}
+    >    },
+    >    {
+    >        {"200", "201"},
+    >        {"210", "211"}
+    >    }
+    >};
+    >
+    >// assign a value
+    >simple3DArray[2, 1, 0] = "Hi, what's up?";
+    >
+    >// access an element
+    >Console.WriteLine(simple3DArray[2,1,0]);
+    >
+    >```
+>
+- c# provides you with built-in functions to We the lower and upper bounds of an array using helpful methods which are
+    1. `yourArray.GetLowerBound(dimension_number)` : return the minimum index number you can access in the arrays
+        > the `dimension_number` represent the current wanted dimension so if you want to get the `LowerBound` of the 1st dimension then the `dimension_number` will be `0` if its the 2nd then it will be `1` and so one
+    2. `yourArray.GetUpperBound(dimension_number)` : return the maximux index number you can access which will be the size of that dimension - 1
+
+## jagged arrays
+
+- If you need a multi-dimensional array but the number of items stored in each dimension is different, then you can define an array of arrays, aka a jagged array.
+- We could visualize a jagged array as shown in the following image
+    ![basic imaginaton of the jagged array](./media/jagged-array-conceptualization.png)
+
+### working with jagged arrays
+
+- declaration
+
+```c#
+int[][] jaggedArray = new int[3][]; // An array with three inner arrays
+//Assigning Inner Arrays
+jaggedArray[0] = new int[] { 1, 2, 3 };
+jaggedArray[1] = new int[] { 4, 5 };
+jaggedArray[2] = new int[] { 6, 7, 8, 9 };
+
+```
+
+- initialzation
+
+    ```c#
+    // C# 11 and earlier must use curly braces and new[] expressions.
+    string[][] jagged = // An array of string arrays.
+    {
+    new[] { "Alpha", "Beta", "Gamma" },
+    new[] { "Anne", "Ben", "Charlie", "Doug" },
+    new[] { "Aardvark", "Bear" }
+    };
+
+    // C# 12 and later can use collection expressions that use square brackets.
+    string[][] jaggedAlt = // An array of string arrays.
+    [
+    [ "Alpha", "Beta", "Gamma" ],
+    [ "Anne", "Ben", "Charlie", "Doug" ],
+    [ "Aardvark", "Bear" ]
+    ];
+
+    ```
+
+### Common Mistakes and Best Practices
+
+1. Mistake: Forgetting to Initialize Inner Arrays
+
+    ```c#
+    int[][] jaggedArray = new int[3][];
+    Console.WriteLine(jaggedArray[0][0]); // This will throw an error! 
+    ```
+
+    > Fix: Ensure inner arrays are initialized before accessing them.
+
+2. Mistake: Misunderstanding Indices
+
+   - Many programmers mistakenly treat jagged arrays as rectangular arrays. Remember that jaggedArray[i] represents an entire inner array, not just an element.
+
+- Best Practices
+  - Use jagged arrays only when inner arrays vary in length.
+  - Always check for null values before accessing elements.
+  - Consider multi-dimensional arrays if uniform data is needed.
+
+## array expression from {C# 14 and .NET 10 - Modern Cross-Platform Development Fundamentals}
+
+- you saw how an individual object supports pattern matching against its type and properties. ***Pattern matching also works with arrays and collections.***
+- list pattern matching works with any type that has a public Length or Count property and has an indexer using an `int` or `System.Index` parameter.
+- the next table shows examples of list pattern matching, assuming a list of int values:
+
+    > | **Example**                           | **Description**                                                                                                                                               |
+    > | ------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+    > | `[]`                                  | Matches an empty array or collection.                                                                                                                         |
+    > | `[..]`                                | Matches an array or collection with any number of items, including zero, so `[..]` must come after `[]` if you need to switch on both.                        |
+    > | `[_]`                                 | Matches a list with any single item.                                                                                                                          |
+    > | `[int item1]` or `[var item1]`        | Matches a list with any single item and can use the value in the return expression by referring to `item1`.                                                   |
+    > | `[7, 2]`                              | Matches exactly a list of two items with those values in that order.                                                                                          |
+    > | `[_, _]`                              | Matches a list with any two items.                                                                                                                            |
+    > | `[var item1, var item2]`              | Matches a list with any two items and can use the values in the return expression by referring to `item1` and `item2`.                                        |
+    > | `[_, _, _]`                           | Matches a list with any three items.                                                                                                                          |
+    > | `[var item1, ..]`                     | Matches a list with one or more items. Can refer to the value of the first item in its return expression by referring to `item1`.                             |
+    > | `[var firstItem, .., var lastItem]`   | Matches a list with two or more items. Can refer to the value of the first and last item in its return expression by referring to `firstItem` and `lastItem`. |
+    > | `[.., var lastItem]`                  | Matches a list with one or more items. Can refer to the value of the last item in its return expression by referring to `lastItem`.                           |
+
+- here is an a method that implenets array expression
+
+    >```C#
+    > static string CheckSwitch(int[] values) => values switch
+    > {
+    >   [] => "Empty array",
+    >   [1, 2, _, 10] => "Contains 1, 2, any single number, 10.",
+    >   [1, 2, .., 10] => "Contains 1, 2, any range including empty, 10.",
+    >   [1, 2] => "Contains 1 then 2.",
+    >   [int item1, int item2, int item3] =>
+    >     $"Contains {item1} then {item2} then {item3}.",
+    >   [0, _] => "Starts with 0, then one other number.",
+    >   [0, ..] => "Starts with 0, then any range of numbers.",
+    >   [2, .. int[] others] => $"Starts with 2, then {others.Length} more numbers.",
+    >   [..] => "Any items in any order.", // <-- Note the trailing comma for easier re-ordering.
+    >   // Use Alt + Up or Down arrow to move statements.
+    > };
+    >```
