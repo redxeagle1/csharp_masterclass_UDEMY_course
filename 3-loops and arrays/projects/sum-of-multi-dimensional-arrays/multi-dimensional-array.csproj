@@ -1,0 +1,13 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>Exe</OutputType>
+    <TargetFramework>net10.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+    <PackAsTool>true</PackAsTool>
+    <UserSecretsId>multi-dimensional-array-46015f1d8680a5fe71983d459bf9c74d5967b62670ef8f41d5257b088689559e</UserSecretsId>
+    <PublishAot>false</PublishAot>
+  </PropertyGroup>
+
+</Project>
