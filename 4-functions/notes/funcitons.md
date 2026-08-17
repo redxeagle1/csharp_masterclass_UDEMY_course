@@ -133,3 +133,32 @@
 
 - to call a funciton you need to type the functoin name and pass arguments if specified
 - function must be defined in the bottom of any top-level program
+
+## methods and local functions
+
+- when defining a function inside a method it's called `local function`
+  
+  > like for example
+  >
+  > ```c#
+  >  static void Main(string[] args) // method
+  >  {
+  >      WriteLine("Hello, World!");
+  >      string myname() // local function
+  >      {
+  >          return "red";
+  >      }
+  >  }
+  > ```
+
+- here is a quich comparasion between both ***Standard Method*** and ***Local Function***
+
+  > |Feature|Standard Method|Local Function|
+  > |---|---|---|
+  > |**Scope**|Class-level (accessible by any class member).|Block-level (only accessible inside the parent member).|
+  > |**Access Modifiers**|Can use `public`, `private`, `protected`, etc.|No modifiers allowed (implicitly private to the block).|
+  > |**Variable Access**|Can access class-level fields.|Can directly capture local variables of the parent method.|
+  > |**Nesting**|Cannot be nested inside other methods.|Can be nested inside methods, properties, constructors, or other local functions.|
+  > |**usability**|usable on the class-level such as `Console.WriteLine()` and can be used in the class's instance too such as `human.run()`|only can be used in the block level in other word the method it defined inside or the parent method|
+
+> - another thing to note is that unlike method local funciton cannot be documented via doc string
