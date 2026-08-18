@@ -1,10 +1,3 @@
-﻿namespace functions;
-
-class Program
-{
-    static void Main(string[] args)
-    {
-        WriteLine("Hello, World!");
-    }
-    
-}
+﻿Hello();
+var result = Sum(2,4);
+WriteLine(result);

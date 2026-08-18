@@ -80,7 +80,7 @@
     > ```
 
 - in order to make the defined method appears on the generated code as standalone method you must use partiale classes aka partial members which will be discussed in the oop section
-  1. Add a new class file named Program.Functions.cs. The name of this file does not actually matter, but using this naming convention is sensible. You could name the file Gibberish.cs, and it would have the same behavior.
+  1. Add a new class file named `Program.Functions.cs`. The name of this file does not actually matter, but using this naming convention is sensible. You could name the file `Gibberish.cs`, and it would have the same behavior.
   2. add the following code in it
 
     > ```c#
