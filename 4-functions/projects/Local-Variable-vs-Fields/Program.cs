@@ -1,0 +1,2 @@
+WriteLine("hello"); 
+WriteLine(number);
