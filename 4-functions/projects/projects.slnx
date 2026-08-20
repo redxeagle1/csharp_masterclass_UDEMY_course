@@ -1,5 +1,5 @@
 <Solution>
   <Project Path="functions-scopes/functions.csproj" />
   <Project Path="Local-Variable-vs-Fields/Local-Variable-vs-Fields.csproj" />
-  <Project Path="WeatherSimulator/WeatherSimulator.csproj" />
+  <Project Path="WeatherStationSimulator/WeatherSimulator.csproj" />
 </Solution>
