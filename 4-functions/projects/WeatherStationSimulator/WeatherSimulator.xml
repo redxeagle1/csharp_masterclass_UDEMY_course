@@ -1,0 +1,66 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>WeatherSimulator</name>
+    </assembly>
+    <members>
+        <member name="M:Program.Main(System.String[])">
+            <summary>
+            Main execution script for the Weather Simulation.
+            Prompts the user for a number of days, generates random temperatures, 
+            and derives sky and event conditions. Finally, it outputs statistical 
+            data including minimum, maximum, average temperatures, and common conditions.
+            </summary>
+        </member>
+        <member name="M:Program.GetRandomWeatherCondition(System.String[],System.String[],System.String@,System.String@)">
+            <summary>
+            Selects a random sky condition and an optional weather event from the provided options.
+            </summary>
+            <param name="skyOptions">An array of possible sky conditions (e.g., Sunny, Cloudy).</param>
+            <param name="eventOptions">An array of possible weather events (e.g., Rainy, Windy). Can be empty.</param>
+            <param name="skyResult">Outputs the randomly selected sky condition.</param>
+            <param name="eventResult">Outputs the randomly selected event, or "None" if no event occurs.</param>
+            <returns>An empty string (reserved for future interpolated string implementation).</returns>
+        </member>
+        <member name="M:Program.GetWeatherCondition(System.Int32,System.String@,System.String@)">
+            <summary>
+            Determines the appropriate weather conditions based on the given temperature.
+            </summary>
+            <param name="t">The current temperature in Celsius.</param>
+            <param name="skyResult">Outputs the determined sky condition.</param>
+            <param name="eventResult">Outputs the determined weather event.</param>
+            <returns>An empty string (reserved for future implementation).</returns>
+            <remarks>
+            Temperature Ranges:
+            2°C to 15°C     -> Sky: Foggy/Cloudy  | Event: Rainy/Windy
+            16°C to 22°C    -> Sky: Sunny/Cloudy  | Event: Rainy/Windy
+            23°C to 25°C    -> Sky: Sunny         | Event: Windy/Rainy
+            26°C to 30°C    -> Sky: Sunny         | Event: Windy
+            31°C to 40°C    -> Sky: Sunny         | Event: None
+            </remarks>
+        </member>
+        <member name="M:Program.GetAverageTemprature(System.Int32[])">
+            <summary>
+            Calculates the average temperature from an array of simulated temperatures.
+            </summary>
+            <param name="temprature">An array containing daily temperature integer values.</param>
+            <returns>The calculated average temperature as a float.</returns>
+        </member>
+        <member name="M:Program.GetMostCommonCondition(System.String[],System.String[])">
+            <summary>
+            Determines the most frequently occurring sky condition and event condition across the simulation.
+            </summary>
+            <param name="skyConditon">An array of generated sky conditions.</param>
+            <param name="eventCondition">An array of generated event conditions.</param>
+            <returns>A string array containing the most common sky condition at index 0 and the most common event condition at index 1.</returns>
+        </member>
+        <member name="M:Program.CountCondions(System.String[],System.String[],System.Int32[])">
+            <summary>
+            Iterates through the provided condition arrays to tally their frequencies into a shared counter array.
+            </summary>
+            <param name="skyCon">The array of simulated sky conditions.</param>
+            <param name="eventCon">The array of simulated event conditions.</param>
+            <param name="freqCount">A pre-initialized integer array used to store the tallies of each specific condition.</param>
+        </member>
+    </members>
+</doc>

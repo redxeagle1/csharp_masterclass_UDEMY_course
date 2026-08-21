@@ -8,7 +8,7 @@ public partial class Program
     /// <param name="skyResult">Outputs the randomly selected sky condition.</param>
     /// <param name="eventResult">Outputs the randomly selected event, or "None" if no event occurs.</param>
     /// <returns>An empty string (reserved for future interpolated string implementation).</returns>
-    static string GetRandomWeatherCondition(string[] skyOptions, string[] eventOptions, out string skyResult, out string eventResult)
+    public static string GetRandomWeatherCondition(string[] skyOptions, string[] eventOptions, out string skyResult, out string eventResult)
     {
         skyResult = Random.Shared.GetItems(skyOptions, 1)[0];
 
@@ -27,14 +27,13 @@ public partial class Program
     /// <returns>An empty string (reserved for future implementation).</returns>
     /// <remarks>
     /// Temperature Ranges:
-    /// -10°C to < 2°C  -> Sky: Snowy/Foggy   | Event: Windy
     /// 2°C to 15°C     -> Sky: Foggy/Cloudy  | Event: Rainy/Windy
     /// 16°C to 22°C    -> Sky: Sunny/Cloudy  | Event: Rainy/Windy
     /// 23°C to 25°C    -> Sky: Sunny         | Event: Windy/Rainy
     /// 26°C to 30°C    -> Sky: Sunny         | Event: Windy
     /// 31°C to 40°C    -> Sky: Sunny         | Event: None
     /// </remarks>
-    static string GetWeatherCondition(int t, out string skyResult, out string eventResult) 
+    public static string GetWeatherCondition(int t, out string skyResult, out string eventResult)
     {
         skyResult = "";
         eventResult = "";
