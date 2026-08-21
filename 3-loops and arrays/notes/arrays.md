@@ -70,6 +70,23 @@
         >
         > - since you are dealing with the size itself it will be much more error prone and less safer
 
+## array manipulation
+
+- you can sort arrays using the built-in sort method which will modify your own array as well
+
+    > ```c#
+    > int[] numbers = { 5, 1, 8, 9 };
+    > Array.Sort(numbers); // numbers is now { 1, 5, 8, 9 }
+    > ```
+
+- if you just want the maximum and minimum element you can use `Array.Max()` and `Array.Min()` they are much performant
+
+    > ```C#
+    > int[] numbers = { 5, 1, 8, 9 };
+    > int maxNum = number.Max();
+    > Console.WriteLine(maxNum); // Output : 9
+    > ```
+
 ## multi-dimensional arrays
 
 - working with multi dimesional arrays is like working with tables and grids

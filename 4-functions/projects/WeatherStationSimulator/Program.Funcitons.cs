@@ -88,10 +88,71 @@ public partial class Program
         float result = sum / temprature.Length;
         return result ;
     }
-    static void GetMinAndMaxTemprature(ref int[] temperature,out int min, out int max)
+    static string[] GetMostCommonCondition(string[] skyConditon, string[] eventCondition)
     {
-        Array.Sort(temperature);
-        min = temperature[0];
-        max = temperature[temperature.Length -1];
+        var frequencyCount = new int[7]; 
+
+        CountCondions(skyConditon,eventCondition, frequencyCount);
+
+        int maxSkyIndex = 0;
+        int maxEventIndex = 4; 
+        
+        int highestCount = frequencyCount[0];
+        for (int i = 1; i < 4; i++)
+        {
+            if (frequencyCount[i] > highestCount){
+                highestCount = frequencyCount[i];
+                maxSkyIndex = i;
+            }
+        }
+        highestCount = frequencyCount[4];
+        for (int i = 5; i < 7; i++)
+        {
+            if (frequencyCount[i] > highestCount){
+                highestCount = frequencyCount[i];
+                maxEventIndex = i;
+            }
+        }
+        string mostCommonSkyCondition = maxSkyIndex switch{
+            0 => "Snowy",
+            1 => "Foggy",
+            2 => "Cloudy",
+            3 => "Sunny",
+            _ => "",
+        };
+        string mostCommonEventCondition = maxEventIndex switch{
+            4 => "Windy",
+            5 => "Rainy",
+            6 => "None",
+            _ => "",
+        };
+        return [mostCommonSkyCondition,mostCommonEventCondition];
+    }
+    static void CountCondions(string[] skyCon, string[] eventCon,int[] freqCount )
+    {
+        // NOTE: to self don't ever use a tuple pattern match as using it in this case won't evaluate all the cases
+        // if you can devide it into two different expression the do it
+        for (int i = 0; i < skyCon.Length; i++)        {
+            {
+            // Count Sky Conditions independently
+                    int _1 = skyCon[i] switch
+                    {
+                        "Snowy" => freqCount[0]++,
+                        "Foggy" => freqCount[1]++,
+                        "Cloudy" => freqCount[2]++,
+                        "Sunny" => freqCount[3]++,
+                        _ => 0
+                    };
+
+                    // Count Event Conditions independently
+                    int _2 = eventCon[i] switch
+                    {
+                        "Windy" => freqCount[4]++,
+                        "Rainy" => freqCount[5]++,
+                        "None" => freqCount[6]++,
+                        _ => 0
+                    };
+            };
+        }
     }
 }
