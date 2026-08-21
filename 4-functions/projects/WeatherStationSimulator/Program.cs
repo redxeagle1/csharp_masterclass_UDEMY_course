@@ -1,38 +1,47 @@
-﻿// General Idea: Simulate daily weather data by generating random temperatures 
-// for a specified number of days, then deriving appropriate sky and event conditions.
+﻿/// <summary>
+/// Main execution script for the Weather Simulation.
+/// Prompts the user for a number of days, generates random temperatures, 
+/// and derives sky and event conditions. Finally, it outputs statistical 
+/// data including minimum, maximum, average temperatures, and common conditions.
+/// </summary>
+
 
 Write("Enter the number of days to simulate:\t");
 
-// Parse user input into an integer. If parsing fails or input is null, default to 0.
-int days = int.TryParse(ReadLine() ?? "0", out int input) ? days = input : days = 0;
+// Parse user input safely; default to 0 if input is invalid or null.
+int days = int.TryParse(ReadLine() ?? "0", out int input) ? input : 0;
 
-// Initialize an array to hold the temperature for each day
+// Arrays to store simulated daily data.
 var temperature = new int[days];
 
-// Initialize a 2D array to hold the Sky Condition [i,0] and Event Condition [i,1] for each day
-// var weatherCondition = new string[days, 2];
+// Jagged array to hold Sky Conditions at index 0 and Event Conditions at index 1.
 var weatherCondition = new string[2][];
 weatherCondition[0] = new string[days]; // Array for Sky conditions
 weatherCondition[1] = new string[days]; // Array for Event conditions
+
 Random random = new Random();
 
 for (int i = 0; i < days; i++)
 {
-    // Assign a random temperature between -10 and 39 degrees Celsius (upper bound is exclusive)
+    // Assign a random temperature between -10 and 39 degrees Celsius.
     temperature[i] = random.Next(-10, 40);
     
-    // Pass the generated temperature to evaluate and populate the 2D weatherCondition array
+    // Populate the weatherCondition arrays based on the generated temperature.
     GetWeatherCondition(temperature[i], out weatherCondition[0][i], out weatherCondition[1][i]);
-    // WriteLine(temperature[i]);
-    WriteLine($"day {i+1} : sky is {weatherCondition[0][i]} and temprature is {weatherCondition[1][i]}");
+    
+    WriteLine($"Day {i+1}: sky is {weatherCondition[0][i]} and temperature is {weatherCondition[1][i]}");
 }
+
+// Calculate simulation statistics.
 float avgTemprature = GetAverageTemprature(temperature);
 int minTemprature = temperature.Min();
 int maxTemprature = temperature.Max();
 
 WriteLine("\n\n");
-WriteLine($"The average temprature for the next {days} is {avgTemprature:F2}");
-WriteLine($"The minmum temprature for the next {days} is {minTemprature}");
-WriteLine($"The maximum temprature for the next {days} is {maxTemprature}");
-var commonCondition = GetMostCommonCondition(weatherCondition[0],weatherCondition[1]);
+WriteLine($"The average temperature for the next {days} days is {avgTemprature:F2}");
+WriteLine($"The minimum temperature for the next {days} days is {minTemprature}");
+WriteLine($"The maximum temperature for the next {days} days is {maxTemprature}");
+
+// Determine the most frequent weather combinations.
+var commonCondition = GetMostCommonCondition(weatherCondition[0], weatherCondition[1]);
 WriteLine($"The common sky is {commonCondition[0]} and the common event is {commonCondition[1]}");

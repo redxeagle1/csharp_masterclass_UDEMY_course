@@ -291,3 +291,34 @@ __pycache__/
 *.btm.cs
 *.odx.cs
 *.xsd.cs
+
+# =========================================================================
+# DocFX Build Artifacts
+# =========================================================================
+
+# The default output folder containing the generated HTML website
+_site/
+
+# DocFX caching and scratch directories used during metadata generation
+obj/
+.docfx/
+
+# If you export templates locally to tweak them, you can un-comment this
+# _exported_templates/
+
+# =========================================================================
+# DocFX Automatically Generated API Files
+# =========================================================================
+
+# Ignore the YAML files generated from source code comments (e.g., in docs/api/)
+# Replace "docfx_project" or "docs" with the path to your docfx root if different.
+**/api/*.yml
+**/api/.manifest
+
+# =========================================================================
+# Exceptions: Files you MUST keep even if they match patterns above
+# =========================================================================
+
+# Ensure manually managed Table of Contents files are tracked
+!**/api/toc.yml
+!**/toc.yml

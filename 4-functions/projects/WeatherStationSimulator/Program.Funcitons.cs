@@ -10,18 +10,11 @@ public partial class Program
     /// <returns>An empty string (reserved for future interpolated string implementation).</returns>
     static string GetRandomWeatherCondition(string[] skyOptions, string[] eventOptions, out string skyResult, out string eventResult)
     {
-        // Pick a random value from the skyOptions array and assign it to skyResult
         skyResult = Random.Shared.GetItems(skyOptions, 1)[0];
 
-        // Determine if an event will occur based on the length of eventOptions.
-        // If eventOptions is empty, the range is [0, 1) meaning it will always pick 0 (false).
-        // Otherwise, it picks from [0, 2), giving a 50% chance of picking 1 (true).
         bool hasEvent = Random.Shared.Next(0, eventOptions.Length == 0 ? 1 : 2) == 1;
-
-        // Using our boolean flag, we assign a random event from the array, or "None" if false
         eventResult = hasEvent ? Random.Shared.GetItems(eventOptions, 1)[0] : "None";
         
-        // Returning a blank string as a placeholder
         return "";
     }
 
@@ -40,15 +33,12 @@ public partial class Program
     /// 23°C to 25°C    -> Sky: Sunny         | Event: Windy/Rainy
     /// 26°C to 30°C    -> Sky: Sunny         | Event: Windy
     /// 31°C to 40°C    -> Sky: Sunny         | Event: None
-    /// Note: Snowy can represent both, but for simplicity, it is treated as a sky option here.
     /// </remarks>
     static string GetWeatherCondition(int t, out string skyResult, out string eventResult) 
     {
-        // Initialize default values for the out parameters
         skyResult = "";
         eventResult = "";
 
-        // Evaluate the temperature against predefined ranges to pass the correct arrays
         if (t is >= -10 and < 2)
         {
             return GetRandomWeatherCondition(["Snowy", "Foggy"], ["Windy"], out skyResult, out eventResult);
@@ -78,6 +68,12 @@ public partial class Program
             return "";
         }
     }
+
+    /// <summary>
+    /// Calculates the average temperature from an array of simulated temperatures.
+    /// </summary>
+    /// <param name="temprature">An array containing daily temperature integer values.</param>
+    /// <returns>The calculated average temperature as a float.</returns>
     static float GetAverageTemprature(int[] temprature)
     {
         float sum = 0;
@@ -86,13 +82,20 @@ public partial class Program
             sum += t;
         }
         float result = sum / temprature.Length;
-        return result ;
+        return result;
     }
+
+    /// <summary>
+    /// Determines the most frequently occurring sky condition and event condition across the simulation.
+    /// </summary>
+    /// <param name="skyConditon">An array of generated sky conditions.</param>
+    /// <param name="eventCondition">An array of generated event conditions.</param>
+    /// <returns>A string array containing the most common sky condition at index 0 and the most common event condition at index 1.</returns>
     static string[] GetMostCommonCondition(string[] skyConditon, string[] eventCondition)
     {
         var frequencyCount = new int[7]; 
 
-        CountCondions(skyConditon,eventCondition, frequencyCount);
+        CountCondions(skyConditon, eventCondition, frequencyCount);
 
         int maxSkyIndex = 0;
         int maxEventIndex = 4; 
@@ -126,32 +129,36 @@ public partial class Program
             6 => "None",
             _ => "",
         };
-        return [mostCommonSkyCondition,mostCommonEventCondition];
+        return [mostCommonSkyCondition, mostCommonEventCondition];
     }
-    static void CountCondions(string[] skyCon, string[] eventCon,int[] freqCount )
-    {
-        // NOTE: to self don't ever use a tuple pattern match as using it in this case won't evaluate all the cases
-        // if you can devide it into two different expression the do it
-        for (int i = 0; i < skyCon.Length; i++)        {
-            {
-            // Count Sky Conditions independently
-                    int _1 = skyCon[i] switch
-                    {
-                        "Snowy" => freqCount[0]++,
-                        "Foggy" => freqCount[1]++,
-                        "Cloudy" => freqCount[2]++,
-                        "Sunny" => freqCount[3]++,
-                        _ => 0
-                    };
 
-                    // Count Event Conditions independently
-                    int _2 = eventCon[i] switch
-                    {
-                        "Windy" => freqCount[4]++,
-                        "Rainy" => freqCount[5]++,
-                        "None" => freqCount[6]++,
-                        _ => 0
-                    };
+    /// <summary>
+    /// Iterates through the provided condition arrays to tally their frequencies into a shared counter array.
+    /// </summary>
+    /// <param name="skyCon">The array of simulated sky conditions.</param>
+    /// <param name="eventCon">The array of simulated event conditions.</param>
+    /// <param name="freqCount">A pre-initialized integer array used to store the tallies of each specific condition.</param>
+    static void CountCondions(string[] skyCon, string[] eventCon, int[] freqCount)
+    {
+        for (int i = 0; i < skyCon.Length; i++)        
+        {
+            // Count Sky Conditions independently
+            int _1 = skyCon[i] switch
+            {
+                "Snowy" => freqCount[0]++,
+                "Foggy" => freqCount[1]++,
+                "Cloudy" => freqCount[2]++,
+                "Sunny" => freqCount[3]++,
+                _ => 0
+            };
+
+            // Count Event Conditions independently
+            int _2 = eventCon[i] switch
+            {
+                "Windy" => freqCount[4]++,
+                "Rainy" => freqCount[5]++,
+                "None" => freqCount[6]++,
+                _ => 0
             };
         }
     }
