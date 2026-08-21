@@ -21,4 +21,14 @@ for (int i = 0; i < days; i++)
     
     // Pass the generated temperature to evaluate and populate the 2D weatherCondition array
     GetWeatherCondition(temperature[i], out weatherCondition[i, 0], out weatherCondition[i, 1]);
+    WriteLine(temperature[i]);
 }
+int minTemprature = 0;
+int maxTemprature = 0;
+// ALERT⚠️: passed the array by refrence for eazy modifications
+GetMinAndMaxTemprature(ref temperature,out minTemprature ,out _);
+GetMinAndMaxTemprature(ref temperature,out _ ,out maxTemprature);
+
+WriteLine($"the average temprature for the next {days} is {GetAverageTemprature(temperature):F2}");
+WriteLine($"the \"minmum\" temprature for the next {days} is {minTemprature}");
+WriteLine($"the \"maximum\" temprature for the next {days} is {maxTemprature}");

@@ -9,6 +9,7 @@
 
 > note that c# compiler will warn you if you tried to cast something implicitly but it fails to do so resulting the Compiler Error CS0029: Cannot ***implicitly*** convert type 'type' to 'type'
 > you can check the following link to know more about the implicit conversion [implicit conversions](https://learn.microsoft.com/en-us/dotnet/csharp/language-reference/language-specification/conversions#102-implicit-conversions)
+> devinding between integers then storing the result inside a decimal(any floating point type generally) number will not turn the result into a decimal value so $\frac{20}{3}= 6$ and will be store that way
 
 ### expilict casting (converion)
 

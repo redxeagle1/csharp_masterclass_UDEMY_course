@@ -78,4 +78,20 @@ public partial class Program
             return "";
         }
     }
+    static float GetAverageTemprature(int[] temprature)
+    {
+        float sum = 0;
+        foreach (var t in temprature)
+        {
+            sum += t;
+        }
+        float result = sum / temprature.Length;
+        return result ;
+    }
+    static void GetMinAndMaxTemprature(ref int[] temperature,out int min, out int max)
+    {
+        Array.Sort(temperature);
+        min = temperature[0];
+        max = temperature[temperature.Length -1];
+    }
 }
