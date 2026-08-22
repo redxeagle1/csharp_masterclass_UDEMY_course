@@ -1,4 +1,5 @@
 <a name='assembly'></a>
+
 # WeatherSimulator
 
 ## Contents
@@ -12,13 +13,13 @@
   - [Main()](#M-Program-Main-System-String[]- 'Program.Main(System.String[])')
 
 <a name='T--Program'></a>
+
 ## Program `type`
 
 ##### Namespace
 
-
-
 <a name='M-Program-CountCondions-System-String[],System-String[],System-Int32[]-'></a>
+
 ### CountCondions(skyCon,eventCon,freqCount) `method`
 
 ##### Summary
@@ -34,6 +35,7 @@ Iterates through the provided condition arrays to tally their frequencies into a
 | freqCount | [System.Int32[]](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Int32[] 'System.Int32[]') | A pre-initialized integer array used to store the tallies of each specific condition. |
 
 <a name='M-Program-GetAverageTemprature-System-Int32[]-'></a>
+
 ### GetAverageTemprature(temprature) `method`
 
 ##### Summary
@@ -51,6 +53,7 @@ The calculated average temperature as a float.
 | temprature | [System.Int32[]](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Int32[] 'System.Int32[]') | An array containing daily temperature integer values. |
 
 <a name='M-Program-GetMostCommonCondition-System-String[],System-String[]-'></a>
+
 ### GetMostCommonCondition(skyConditon,eventCondition) `method`
 
 ##### Summary
@@ -69,6 +72,7 @@ A string array containing the most common sky condition at index 0 and the most 
 | eventCondition | [System.String[]](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.String[] 'System.String[]') | An array of generated event conditions. |
 
 <a name='M-Program-GetRandomWeatherCondition-System-String[],System-String[],System-String@,System-String@-'></a>
+
 ### GetRandomWeatherCondition(skyOptions,eventOptions,skyResult,eventResult) `method`
 
 ##### Summary
@@ -89,6 +93,7 @@ An empty string (reserved for future interpolated string implementation).
 | eventResult | [System.String@](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.String@ 'System.String@') | Outputs the randomly selected event, or "None" if no event occurs. |
 
 <a name='M-Program-GetWeatherCondition-System-Int32,System-String@,System-String@-'></a>
+
 ### GetWeatherCondition(t,skyResult,eventResult) `method`
 
 ##### Summary
@@ -110,20 +115,22 @@ An empty string (reserved for future implementation).
 ##### Remarks
 
 Temperature Ranges:
-2°C to 15°C     -> Sky: Foggy/Cloudy  | Event: Rainy/Windy
-16°C to 22°C    -> Sky: Sunny/Cloudy  | Event: Rainy/Windy
-23°C to 25°C    -> Sky: Sunny         | Event: Windy/Rainy
-26°C to 30°C    -> Sky: Sunny         | Event: Windy
-31°C to 40°C    -> Sky: Sunny         | Event: None
+
+- 2°C to 15°C     -> Sky: Foggy/Cloudy  | Event: Rainy/Windy
+- 16°C to 22°C    -> Sky: Sunny/Cloudy  | Event: Rainy/Windy
+- 23°C to 25°C    -> Sky: Sunny         | Event: Windy/Rainy
+- 26°C to 30°C    -> Sky: Sunny         | Event: Windy
+- 31°C to 40°C    -> Sky: Sunny         | Event: None
 
 <a name='M-Program-Main-System-String[]-'></a>
+
 ### Main() `method`
 
 ##### Summary
 
 Main execution script for the Weather Simulation.
-Prompts the user for a number of days, generates random temperatures, 
-and derives sky and event conditions. Finally, it outputs statistical 
+Prompts the user for a number of days, generates random temperatures,
+and derives sky and event conditions. Finally, it outputs statistical
 data including minimum, maximum, average temperatures, and common conditions.
 
 ##### Parameters

@@ -322,3 +322,7 @@ obj/
 # Ensure manually managed Table of Contents files are tracked
 !**/api/toc.yml
 !**/toc.yml
+
+# IWE
+
+**/**/.iwe

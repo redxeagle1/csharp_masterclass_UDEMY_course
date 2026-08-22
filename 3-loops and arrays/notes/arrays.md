@@ -72,11 +72,42 @@
 
 ## array manipulation
 
-- you can sort arrays using the built-in sort method which will modify your own array as well
+- you can sort arrays using the built-in `sort` method which will modify your own array as well
 
     > ```c#
-    > int[] numbers = { 5, 1, 8, 9 };
-    > Array.Sort(numbers); // numbers is now { 1, 5, 8, 9 }
+    > string[] pallets = [ "B14", "A11", "B12", "A13" ];;
+    > Array.Sort(pallets); // pallets is now [A11, A13, B12, B14]
+    > ```
+    >
+    > - it can also sort alphapetly
+    > - it sort from least to most
+
+- you can also revese the order of the array's elements using the built-in `revese` method as the folliwing
+
+    > ```c#
+    > string[] pallets = [ "B14", "A11", "B12", "A13" ];;
+    > Array.Reverse(pallets); // pallets is now [B14, B12, A13, A11]
+    > ```
+
+- The `Array.Clear()` method enables you to eliminate the contents of specific elements in your array, replacing them with the array's default value.
+  - if you clear an element in a `string` array, the cleared value is replaced with `null`.
+  - if you clear an element in an `int` array, the replacement is `0`.
+
+    > ```c#
+    > string[] pallets = [ "B14", "A11", "B12", "A13" ];
+    > Array.Clear(pallets, 0, 2);  // pallets is now [ null, "A11", null, "A13" ]
+    > ```
+    >
+    > - notice how it doesn't resize or reduce the array's length
+
+- to resize array to either add or remove element you shoud use `Array.Resize(ref YOUR_ARRAY, new_size)` and in this method you will pass your array by refrence
+
+    > ```c#
+    > string[] pallets = [ "B14", "A11", "B12", "A13" ];
+    > Array.Resize(ref pallets, 0, 2); // pallates is now [ "B14", "A11"]
+    > Array.Resize(ref pallets, 6);
+    > pallets[4] = "C01";
+    > pallets[5] = "C02"; // pallates is now [ "B14", "A11", null, null, C01, C02 ]
     > ```
 
 - if you just want the maximum and minimum element you can use `Array.Max()` and `Array.Min()` they are much performant
@@ -85,6 +116,21 @@
     > int[] numbers = { 5, 1, 8, 9 };
     > int maxNum = number.Max();
     > Console.WriteLine(maxNum); // Output : 9
+    > ```
+
+- you can use `..` aka spread oprator to merge arrays as the following
+
+    > ``` C#
+    > int[] oneTwoThree = [1, 2, 3];
+    > int[] fourFiveSix = [4, 5, 6];
+    > 
+    > int[] all = [.. fourFiveSix, 100, .. oneTwoThree];
+    > 
+    > Console.WriteLine(string.Join(", ", all));
+    > Console.WriteLine($"Length: {all.Length}");
+    > // Outputs:
+    > //   4, 5, 6, 100, 1, 2, 3
+    > //   Length: 7
     > ```
 
 ## multi-dimensional arrays
