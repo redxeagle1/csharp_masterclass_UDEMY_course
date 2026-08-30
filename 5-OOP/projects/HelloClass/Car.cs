@@ -4,10 +4,12 @@ namespace HelloClass;
 
 internal class Car
 {
-    static int count = 0;
-    public Car()
+    private string _model;
+    private string _name;
+    public Car(string model, string name)
     {
-        count++;
-        WriteLine($"an object of the class {nameof(Car)} is created now you have {count}");
+        _model = model;
+        _name = name;
+        WriteLine($"the model of the assigned car is {_model} and the owner's name is {_name}");    
     }
 }
