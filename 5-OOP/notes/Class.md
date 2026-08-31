@@ -79,6 +79,55 @@
     >     }
     > ```
 
+### multiple constructors
+
+- you can override your default constructor with multiple constructor
+
+    ```c#
+    internal class Customers
+    {
+        public string? Name { get; set; }
+        public string? Address { get; set; }
+        public string? ContactNumber { get; set; }
+
+        //Custom Constructor
+        public Customers(string name, string address, string contactNumber)
+        {
+            Name = name;
+            Address = address;
+            ContactNumber = contactNumber;
+        }
+
+        public Customers(string name)
+        {
+            Name = name;
+        }
+    }
+    ```
+
+### Default Constructor
+
+- when create your object without passing argument that way you are using the default constructor
+- a benefit of the default constructor that you can set default properties for your object
+- yyou can override the default constructor too!
+
+    ```c#
+    internal class Customers
+    {
+        public string? Name { get; set; }
+        public string? Address { get; set; }
+        public string? ContactNumber { get; set; }
+
+        // default constructor
+        public Customers()
+        {     
+            Name = "New Customer";
+            Address = "Unkown";
+            ContactNumber = "None";
+        }
+    }
+    ```
+
 ## member variable aka fields
 
 fields have the following descritionp
