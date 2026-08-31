@@ -1,42 +1,47 @@
 using System;
+using System.Reflection.Metadata;
 
 namespace HelloClass;
 
 internal class Car
 {
-    // fields
-    private string? _model;
-    private string? _name;
+    // member variable
+    private int _number;
 
 
+    // Property
+    // With lambda expression
+    public string Model { get => field ?? "Undifiend" ; set; }
 
-    // probeties
-    public string Model
-    { 
-        get => _model ?? "Undifined";
+    public string Brand
+    {
+
+        get => field ?? "Undifiend" + (IsLuxury ? " - Luxury Edition" : ""  );
         set
         {
-            if (!string.IsNullOrEmpty(value))
+            if (string.IsNullOrEmpty(value))
             {
-                _model = value;
+                WriteLine("You entered NOTHING!");
+                field = "Undifiend";
             }
             else
             {
-                WriteLine("fiald to process your input\r\nthe model has been set to \"Undifined\" as a fallback ");
-                _model = "Undifined";
+                field = value;
             }
-        } 
-    }
-    public string Name
-    {
-        get => _name ?? "unknown";
-        set => _name = value;
-    }
+        }
 
-    public Car(string model, string name)
+    }
+    public  bool IsLuxury { get; set; }
+    public int Number { get => _number; set => _number = value; }
+
+
+    // Custom Constructor
+    public Car(string model, string brand, bool isLuxury)
     {
         Model = model;
-        Name = name;
-        WriteLine($"the model of the assigned car is {Model} and the owner's name is {Name}");
+        Brand = brand;
+        Console.WriteLine($"A {Brand} of the" +
+            $" model {Model} has been created");
+        IsLuxury = isLuxury;
     }
 }

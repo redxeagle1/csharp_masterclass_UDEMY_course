@@ -105,13 +105,13 @@ fields have the following descritionp
 
 - here is a summary table for the basic rules
 
-|Field Type|acceptable `Access` Modifier|Casing|Prefix|Example|
-|---|---|---|---|---|
-|**Instance Field**|`private` / `internal`|camelCase|`_`|`_userRepository`|
-|**Static Field**|`private` / `internal`|camelCase|`s_`|`s_globalCounter`|
-|**Thread Static**|`private` / `internal`|camelCase|`t_`|`t_localCache`|
-|**Constant**|Any modifier|PascalCase|*None*|`MaxItemsPerPage`|
-|**Public Field**|`public` / `protected`|PascalCase|*None*|`DefaultSettings`|
+| Field Type         | acceptable `Access` Modifier | Casing     | Prefix | Example           |
+| ------------------ | ---------------------------- | ---------- | ------ | ----------------- |
+| **Instance Field** | `private` / `internal`       | camelCase  | `_`    | `_userRepository` |
+| **Static Field**   | `private` / `internal`       | camelCase  | `s_`   | `s_globalCounter` |
+| **Thread Static**  | `private` / `internal`       | camelCase  | `t_`   | `t_localCache`    |
+| **Constant**       | Any modifier                 | PascalCase | *None* | `MaxItemsPerPage` |
+| **Public Field**   | `public` / `protected`       | PascalCase | *None* | `DefaultSettings` |
 
  according to official runtime rules to clearly denote that the field is static and shared across threads.(Note: Some teams omit the s and simply use a standard underscore *staticField, but s* is the recommended .NET standard).s_cacheRoots_defaultTimeout
 > **Private Static Fields**
@@ -214,3 +214,134 @@ fields have the following descritionp
     ```
 
 ### manipulating the property's get
+
+- same as we did in the last sub-section we can manipulate the default get to perform more functionalities like returning a message based on the given data or a hash of something etc
+- an example of that is
+
+    ```c#
+    internal class Car
+    {
+        // fields
+        private string? _brand;
+        private bool _isLuxury;
+
+        // properties
+        public string Brand
+        {
+            get
+            {
+                if (_isLuxury)
+                {
+                    return (_brand ?? "Undifiend") + " - Luxury Edition";
+                }
+                else
+                {
+                    return _brand ?? "Undifiend";
+                }
+            }
+        }
+    }
+
+    // MAIN
+    Car audi = new("A3" , "Audi", false);
+    Car bmw = new("i7", "BMW", true);
+
+    // GETTING BRAND
+    WriteLine("Brand is " +  audi.Brand);
+    WriteLine("Brand is " + bmw.Brand);
+    ```
+
+### backing field and `field` keyword
+
+- a backing field is field needed when you want to process a value before `set` or `get` it but sometime we don't really need processing we just need to pass the value so why using a field if that is our sole purpose we can do that by performing the following
+
+    ```c#
+    class Car
+    {
+        // using a backing field for just storing our data only
+        private int _number;
+        public int Number { get => _number; set => _number = value; }
+        
+        // using the default proberty
+        public  bool IsLuxury { get; set; }
+    }
+    ```
+
+- you can also [after c# 14] use `field` keyword as way to avoid using backing field if you want to process a field in one proberty knowing that the `field` is scoped to only the property you currently using as the following example
+
+  - **Before C# 14**
+
+    ```c#
+    internal class Car
+    {
+        private string? _brand;
+        public  bool IsLuxury { get; set; }
+        
+        public string Brand
+        {
+
+            get => _brand ?? "Undifiend" + (IsLuxury ? " - Luxury Edition" : ""  );
+            set
+            {
+                if (string.IsNullOrEmpty(value))
+                {
+                    WriteLine("You entered NOTHING!");
+                    _brand = "Undifiend";
+                }
+                else
+                {
+                    _brand = value;
+                }
+            }
+
+        }
+    }
+    ```
+
+  - **After C# 14**
+
+    ```c#
+    internal class Car
+    {
+        public  bool IsLuxury { get; set; }
+
+        public string Brand
+        {
+
+            get => field ?? "Undifiend" + (IsLuxury ? " - Luxury Edition" : ""  );
+            set
+            {
+                if (string.IsNullOrEmpty(value))
+                {
+                    WriteLine("You entered NOTHING!");
+                    field = "Undifiend";
+                }
+                else
+                {
+                    field = value;
+                }
+            }
+
+        }
+    }
+    ```
+
+### `init` keyword
+
+- if you wanted an immutable (read-only) property either use
+  - a constructor and give up the `set` entirely
+  - make the `set` private
+
+- the sole purpose of the `init` is to make your property read-only as the following
+
+    ```c#
+    public class Person
+    {
+        public string Name { get; init; } // Init-only
+    }
+
+    // Usage (Object Initializer):
+    var p = new("Alice");   // This works!
+
+    p.Name = "Bob";     // Compile Error! It is now locked.
+    ```
