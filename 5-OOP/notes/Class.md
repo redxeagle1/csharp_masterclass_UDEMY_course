@@ -165,3 +165,52 @@ fields have the following descritionp
         WriteLine(hundai.Model); // Output : hundai the indi
     }
     ```
+
+### manipulating the property's set
+
+- supposing that you want to preprocess value before passing it the field you can do so by turning the `set` part from lamda expression `set => _field = value;` into code block `set { _field = value; }` and take the next thing as an example
+
+  - **Car.cs**
+
+    ```c#
+    internal class Car
+    {
+        // fields
+        private string? _model;
+        private string? _name;
+        // probeties
+        public string Model
+        { 
+            get => _model ?? "Undifined";
+            set
+            {
+                if (!string.IsNullOrEmpty(value))
+                {
+                    _model = value;
+                }
+                else
+                {
+                    WriteLine("fiald to process your input\r\nthe model has been set to \"Undifined\" as a fallback ");
+                    _model = "Undifined";
+                }
+            } 
+        }
+    }
+    ```
+  
+  > Notice how we made our set a code block
+
+  - **Program.cs**
+
+    ```c#
+    Car BMW = new("BMW","sini");
+    BMW.Model = null ;
+    WriteLine(BMW.Model);
+    /* output:
+        >>> fiald to process your input
+        >>> the model has been set to "Undifined" as a fallback 
+        >>> Undifined
+    */
+    ```
+
+### manipulating the property's get
