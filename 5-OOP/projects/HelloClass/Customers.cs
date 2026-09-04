@@ -12,7 +12,7 @@ internal class Customers
     public Customers()
     {     
         Name = "New Customer";
-        Address = "Unkown";
+        Address = "Unknown";
         ContactNumber = "None";
     }
 
@@ -27,5 +27,12 @@ internal class Customers
     public Customers(string name)
     {
         Name = name;
+    }
+
+    public void SetDetails(string name, string address,string contactNumber)
+    {
+        Name = name;
+        Address = address;
+        ContactNumber = contactNumber;
     }
 }

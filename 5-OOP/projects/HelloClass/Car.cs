@@ -11,18 +11,18 @@ internal class Car
 
     // Property
     // With lambda expression
-    public string Model { get => field ?? "Undifiend" ; set; }
+    public string Model { get => field ?? "Undefined" ; set; }
 
     public string Brand
     {
 
-        get => field ?? "Undifiend" + (IsLuxury ? " - Luxury Edition" : ""  );
+        get => field ?? "Undefined" + (IsLuxury ? " - Luxury Edition" : ""  );
         set
         {
             if (string.IsNullOrEmpty(value))
             {
                 WriteLine("You entered NOTHING!");
-                field = "Undifiend";
+                field = "Undefined";
             }
             else
             {
@@ -43,5 +43,10 @@ internal class Car
         Console.WriteLine($"A {Brand} of the" +
             $" model {Model} has been created");
         IsLuxury = isLuxury;
+    }
+
+    public void Drive()
+    {
+        WriteLine($"I'm {Model} I'm Driving");
     }
 }
