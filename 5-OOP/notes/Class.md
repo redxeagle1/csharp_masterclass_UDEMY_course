@@ -645,3 +645,39 @@ fields have the following description
   - Overusing inner classes: If a class can exist independently, it should not be an inner class.
   - Accessing outer class members incorrectly: Use a reference to the outer class when accessing private members.
   - Ignoring encapsulation: Avoid exposing inner class functionality unless required.
+
+## operator overloading
+
+- it wouldn't be OOP if not using this functionality of c# instead of defining a method for adding it would be more convenient to overload the defined operators to create a new type of action
+- for example adding vectors together will be adding each coordinate i.e. (x, y) together without creating a new method and call it
+- we can that allows us to define custom behaviors for standard operators (`+`, `-`, `*`, `/`, `==`, etc.) when applied to user-defined types aka like structs or classes.
+- a practical example for that is the following
+
+    ```cs
+    public class Vector
+    {
+        public int X { get; set; }
+        public int Y { get; set; }
+    
+        public Vector(int x, int y)
+        {
+            X = x;
+            Y = y;
+        }
+        public static Vector operator +(Vector v1, Vector v2)
+    {
+        return new Vector(v1.X + v2.X, v1.Y + v2.Y);
+    }
+
+    }
+    //////////////////////
+    Vector result = v1 + v2;
+    result.Display(); // Output: Vector: (10, 7)
+    ```
+
+### Best Practices <!-- markdownlint-disable-line MD000 -->
+
+- Overload operators only when it improves code readability and maintainability.
+- Always overload the corresponding opposite operator (e.g., if you overload ==, also overload !=).
+- Keep operator implementations efficient and meaningful.
+- Use value types (structs) wisely when overloading to avoid unnecessary heap allocations.
