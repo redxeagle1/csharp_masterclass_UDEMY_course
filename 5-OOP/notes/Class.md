@@ -2,7 +2,7 @@
 
 - classes composes of multiple elements
 
-## a `constructor`
+## `Constructor`
 
 - which is a method that have the same name of the class itself and does not have a `return` method
     it's called whenever a new object is created from that class
@@ -401,3 +401,167 @@ fields have the following description
 - While c# treats method as the default naming convention for the functions and name any function defined inside a method a `local function` most programming language name `functions` function outside classes while naming them `Method` inside classes or in the context of OOP in general
 - A method is defined the same way of defining typical one in a Top-level program which is `<access_modifier> <function_name>(parameter list){function body}`
 - Each object or class instance can use the same method with entirely different behavior
+
+### Expression Bodied Members
+
+- A form that replaces the standard code block way into more compact and readable expression or statement to certain class members which will be covered in this section
+- An Expression Bodied Member is a shorthand syntax in C# that allows defining simple methods, properties, or even constructors using the lambda arrow (`=>`) instead of curly braces `{ }`
+- The compiler then under the hood turn Expression Bodied member into full code block in the optimization phase
+- **An Analogy for that** is rather than typing full 5-line paragraph just to declare a meeting only type *"Meeting at 5 PM."*
+
+#### Declaring  and Using Expression Bodied Members
+
+1. Methods
+
+   - rather than typing a method like that
+
+   ```c#
+    class MathOperations
+    {
+        public int Square(int number)
+        {
+            return number * number;
+        }
+    }
+   ```
+
+   - we can just type
+
+    ```c#
+    class MathOperations
+    {
+        public int Square(int number) => number * number;
+    }
+    ```
+
+2. Properties
+
+    - rather than this
+
+    ```c#
+    class Person
+    {
+        private string name;
+    
+        public Person(string name)
+        {
+            this.name = name;
+        }
+    
+        public string Name
+        {
+            get { return name; }
+        }
+    }
+    ```
+
+    - make this
+
+    ```c#
+    class Person
+    {
+        //field
+        private string name;    
+        
+        //property
+        public string Name => name;
+
+        //constructor
+        public Person(string name)
+        {
+            this.name = name;
+        }
+    }
+    ```
+
+3. Constructors
+
+    - rather than this
+
+    ```c#
+    class Logger
+    {
+        private string message;
+    
+        public Logger(string msg)
+        {
+            message = msg;
+        }
+    }
+    ```
+
+    - make this
+
+    ```c#
+    class Logger
+    {
+        private string message;
+    
+        public Logger(string msg) => message = msg;
+    }
+    ```
+
+4. Finalizers
+
+    - rather than this
+
+    ```c#
+    class FileHandler
+    {
+        ~FileHandler()
+        {
+            Console.WriteLine("Finalizer called!");
+        }
+    }
+    ```
+
+    - make this
+
+    ```c#
+    class FileHandler
+    {
+        ~FileHandler() => Console.WriteLine("Finalizer called!");
+    }
+    ```
+
+5. Indexers
+
+- Indexers allow objects to be indexed like arrays. Expression Bodied Members make indexers shorter when they contain a single return statement.
+
+  - Without Expression Bodied Syntax:
+
+    ```c#
+    class Collection
+    {
+        private int[] numbers = { 1, 2, 3, 4, 5 };
+    
+        public int this[int index]
+        {
+            get { return numbers[index]; }
+        }
+    }
+    ```
+
+  - With Expression Bodied Syntax:
+
+    ```c#
+    class Collection
+    {
+        private int[] numbers = { 1, 2, 3, 4, 5 };
+    
+        public int this[int index] => numbers[index];
+    }
+    ```
+
+#### Best Practices and Common Mistakes
+
+- Use Expression Bodied syntax for simple operations.
+- Keep code concise but still readable.
+- Use it in conjunction with standard methods when necessary.
+
+- DON'T USE IT in the following
+  - **Using it for complex logic** – If a method has multiple lines of code, stick to regular methods
+
+## Inner Classes
+
+-
