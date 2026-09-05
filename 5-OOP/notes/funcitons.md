@@ -35,7 +35,7 @@
       > ```
 
 - `<MethodName>`: a unique identifier and case sensitive follows Pascal case (`MyClassAnimal`) naming convention
-- `<ParameterLisr>`: enclosed between parentheses, the parameters are used to pass and receive data from a method the parameter list order refer to
+- `<ParameterList>`: enclosed between parentheses, the parameters are used to pass and receive data from a method the parameter list order refer to
   - type
   - order
   - number of parameters in the list
@@ -52,6 +52,49 @@
 
 - to call a function you need to type the function name and pass arguments if specified
 - function must be defined in the bottom of any top-level program
+
+## optional parameters
+
+- optional parameters or default arguments are a way to set default values to each parameter
+- optional parameters must be written in the last of the `<ParameterList>`
+- writing optional parameter is easy as the following
+
+    > ```C#
+    > class Program
+    > {
+    >     static int Sum(int firstNum,int secondNum = 1)
+    >     {
+    >         return firstNum + secondNum;
+    >     }
+    >     static void Main(string[] args)
+    >     {
+    >           Console.WriteLine(Sum(3)) // 4
+    >     }
+    > }
+    > ```
+
+- optional parameter can be used in class Constructor
+
+## named Parameters
+
+- it's mainly used for readability and organization especially if the `<ParameterList>` is pretty big with multiple overloads
+- named parameters can be used as the following
+
+    > ```C#
+    > class Program
+    > {
+    >     static int Sum(int firstNum,int secondNum)
+    >     {
+    >         return firstNum + secondNum;
+    >     }
+    >     static void Main(string[] args)
+    >     {
+    >           Console.WriteLine(Sum(3, secondNum:2)) // 5
+    >     }
+    > }
+    > ```
+    >
+    > - Notice how we just use the parameter's name follow by colons (:) then passed the argument
 
 ## how to make method in top level programs
 
@@ -203,7 +246,7 @@
     >  }
     > ```
 
-- here is a quich comparison between both **_Standard Method_** and **_Local Function_**
+- here is a quick comparison between both **_Standard Method_** and **_Local Function_**
 
     > |**Feature**|**Standard Method**|**Local Function**|
     > |---|---|---|
