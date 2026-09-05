@@ -1,4 +1,4 @@
-# functions or methods (preferably as best practise)
+# functions or methods (preferably as best practice)
 
 - methods is a code block contains multiple series of. A program then cause these statements to be executed by calling the method (invocation) and specifying arguments
 - method are reusable too
@@ -6,14 +6,14 @@
 ## method structure
 
 ```c#
-<AccessModifier> <ReturnType> <MethodName>(<ParameterLisr>)
+<AccessModifier> <ReturnType> <MethodName>(<ParameterList>)
 {
     // method body (code to execute)
     return <value>; // Required if ReturnType is not 'void'
 }
 ```
 
-- `<AccessModifier>` : defines the visibilty of a variable or a method from another class like `static` `public` `private` `protected internal` `internal` `protected` `private protected`
+- `<AccessModifier>` : defines the visibility of a variable or a method from another class like `static` `public` `private` `protected internal` `internal` `protected` `private protected`
 - `<ReturnType>`
   - method can either return a value which will require identifying the type of the return the for example a method can be a `int` type so **_it should return a `int` value_**
 
@@ -35,7 +35,7 @@
       > ```
 
 - `<MethodName>`: a unique identifier and case sensitive follows Pascal case (`MyClassAnimal`) naming convention
-- `<ParameterLisr>`: enclosed between parentheses, the prameters are used to pass and recieve data from a method the parameter list order refer to
+- `<ParameterLisr>`: enclosed between parentheses, the parameters are used to pass and receive data from a method the parameter list order refer to
   - type
   - order
   - number of parameters in the list
@@ -48,16 +48,16 @@
 - `method body`: is the code to be executed
 - `return` if a method has a `<ReturnType>` it return values `29493` or expressions `a + b` that does evaluates to values
 
-## methood calling and location
+## method calling and location
 
-- to call a funciton you need to type the functoin name and pass arguments if specified
+- to call a function you need to type the function name and pass arguments if specified
 - function must be defined in the bottom of any top-level program
 
 ## how to make method in top level programs
 
-- as dicussed in [top-level programs](top-level-statements.md) any method you define in a top level program will be local function so you have two ways of creating method
+- as discussed in [top-level programs](top-level-statements.md) any method you define in a top level program will be local function so you have two ways of creating method
     1. using partial members + top-level program
-        - affter creating a project add a new class file either from the vs code command pallate or using vs 2026's tools and name it `Program.function.cs` as **_Naming convention_**
+        - after creating a project add a new class file either from the vs code command pallet or using vs 2026's tools and name it `Program.function.cs` as **_Naming convention_**
 
         - remove all the generated code from this file and include these instead
 
@@ -83,7 +83,7 @@
             > ```
 
     2. using the classic file template
-        - you just make the outside the main method as and use the `static` modifier on them so you don't need to make an instance of the class upon to just use them as the followinh code
+        - you just make the outside the main method as and use the `static` modifier on them so you don't need to make an instance of the class upon to just use them as the following code
 
         > ```c#
         > namespace functions;
@@ -124,7 +124,7 @@
       > }
       > ```
 
-  - `pass-by-refrence` using the `ref` keyword in which The method receives a direct reference to the memory location. Any changes made inside the method will permanently alter the original variable outside the method.
+  - `pass-by-reference` using the `ref` keyword in which The method receives a direct reference to the memory location. Any changes made inside the method will permanently alter the original variable outside the method.
     - The variable must be initialized by the caller before invoking the method.
 
         > ```C#
@@ -203,7 +203,7 @@
     >  }
     > ```
 
-- here is a quich comparasion between both **_Standard Method_** and **_Local Function_**
+- here is a quich comparison between both **_Standard Method_** and **_Local Function_**
 
     > |**Feature**|**Standard Method**|**Local Function**|
     > |---|---|---|
