@@ -11,9 +11,65 @@ The following subsections will clarify this topic in more detail.
 
 ### The `internal` modifier
 
-- it make the class only accessible in the assemler level or in other word visible to the whole project or library
+- it make the class only accessible in the assembler level or in other word visible to the whole project or library
+
+### The `public` modifier
+
+- makes our members accessible outside the class level making it convenient when you want to share your methods with other classes for example
+
+### The `private` modifier
+
+- makes our members only visible to the class-level making it convenient when you want to hide your attributes, method that you don't want any other class to use.
 
 ## `Non-access` modifiers
+
+### The `const` Modifier
+
+- Hardcoded at Build: The compiler copies and pastes the raw value directly into the code wherever it is used.
+- Immediate Initialization: You must assign a value the exact moment you declare it.
+- Never Changes: The value is strictly immutable and cannot be altered at runtime.
+- Implicitly Static: Class-level constants belong to the class itself, not to individual instances.
+- Limited Types: Only works with primitives (`int`, `float`, etc.), `string`, `enum`, or a `null` reference.
+
+    ```C#
+    public class MathConstants
+    {
+        // Class-level compile-time constants
+        public const double Pi = 3.14159;
+        public const int MaxUsers = 100;
+    
+        public void Calculate()
+        {
+            // Local constant inside a method
+            const string Greeting = "Hello World";
+            
+            // Greeting = "New String"; // This line would cause a compile error!
+        }
+    }
+
+    ```
+
+### The `readonly` Modifier
+
+- a keyword primarily used to declare that a field can only be assigned a value during its declaration or within a constructor of the same class.
+- It acts as a safeguard to ensure data integrity and to create immutable data structures
+- The impact of readonly depends heavily on the type of data it holds
+  - Value Types (e.g., int, bool, custom structs): The field becomes completely immutable. The value cannot be changed.
+  - Reference Types (e.g., custom classes, lists, arrays): The field must always point to the same object instance. You cannot reassign the field to a new object, but you can still modify the internal properties of that object
+`readonly` vs `const`
+
+- Developers often confuse  
+
+#### The key differences between `readonly` and `const` are
+
+| Feature             | `readonly`                                                      | `const`                                             |
+| ------------------- | --------------------------------------------------------------- | --------------------------------------------------- |
+| **Evaluation Time** | **Runtime** constant (value can be determined during execution) | **Compile-time** constant (value must be hardcoded) |
+| **Initialization**  | At declaration OR inside constructors                           | Only at declaration                                 |
+| **Supported Types** | Any type (Value types and Reference types)                      | Only primitive types, enums, or strings             |
+| **Scope**           | Class fields only (cannot be used inside methods)               | Can be declared inside local methods or classes     |
+
+- it's useful when you need for example an id for each object of a certain class
 
 ### The `static` Modifier
 

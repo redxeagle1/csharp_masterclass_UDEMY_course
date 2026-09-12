@@ -215,6 +215,12 @@ fields have the following description
     }
     ```
 
+### Properties types
+
+- Properties can be read-write which will then have `{ get; set;}`
+- Properties can be read-only which will then have `{ get;}` only
+- Properties can be Write-only which will then have `{ set;}` only
+
 ### manipulating the property's set
 
 - supposing that you want to preprocess value before passing it the field you can do so by turning the `set` part from lambda expression `set => _field = value;` into code block `set { _field = value; }` and take the next thing as an example
