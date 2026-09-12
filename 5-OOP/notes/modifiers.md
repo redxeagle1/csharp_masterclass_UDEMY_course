@@ -34,3 +34,9 @@ Math myMath = new Math();
 - Think of it like being a builder who has created a single blueprint for the houses you plan to construct—this blueprint represents the `class`.
   - **The Object:** Each individual house built from that blueprint is an `object`. It has its own unique properties, such as the color of the walls, the furniture, and other specific details.
   - **The Static Element:** However, all the houses built will share a common property or unified actions that apply uniformly to all of them. In this context, that "unified" or shared element is exactly what `static` represents.
+
+#### `static` Usage Considerations
+
+- Memory Usage: Static members are allocated once and live for the duration of the application, which can be more memory-efficient for shared data.
+- Global State: Static members maintain a global state which can lead to issues with data consistency, especially in multithreaded scenarios. Care should be taken to manage access to static members, possibly using synchronization mechanisms if needed.
+- Testing Challenges: Classes that use static members can be harder to test due to their persistent state across tests. This can be mitigated by using patterns such as dependency injection to abstract away static dependencies.
