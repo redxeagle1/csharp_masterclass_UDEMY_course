@@ -98,7 +98,7 @@
 
 ## how to make method in top level programs
 
-- as discussed in [top-level programs](top-level-statements.md) any method you define in a top level program will be local function so you have two ways of creating method
+- as discussed in [top-level programs](../../4-functions/notes/top-level-statements.md) any method you define in a top level program will be local function so you have two ways of creating method
     1. using partial members + top-level program
         - after creating a project add a new class file either from the vs code command pallet or using vs 2026's tools and name it `Program.function.cs` as **_Naming convention_**
 
@@ -257,3 +257,44 @@
     > |**usability**|usable on the class-level such as `Console.WriteLine()` and can be used in the class's instance too such as `human.run()`|only can be used in the block level in other word the method it defined inside or the parent method|
     >
     > - another thing to note is that unlike method local function cannot be documented via doc string
+
+## Expression Bodied Members
+
+- A form that replaces the standard code block way into more compact and readable expression or statement to certain class members which will be covered in this section
+- An Expression Bodied Member is a shorthand syntax in Csharp that allows defining simple methods, properties, or even constructors using the lambda arrow (`=>`) instead of curly braces `{ }`
+- The compiler then under the hood turn Expression Bodied member into full code block in the optimization phase
+- **An Analogy for that** is rather than typing full 5-line paragraph just to declare a meeting only type _"Meeting at 5 PM."_
+
+### Declaring  and Using Expression Bodied Methods Members
+
+1. Methods
+
+   - rather than typing a method like that
+
+   ```Csharp
+    class MathOperations
+    {
+        public int Square(int number)
+        {
+            return number * number;
+        }
+    }
+   ```
+
+   - we can just type
+
+    ```Csharp
+    class MathOperations
+    {
+        public int Square(int number) => number * number;
+    }
+    ```
+
+### Best Practices and Common Mistakes
+
+- Use Expression Bodied syntax for simple operations.
+- Keep code concise but still readable.
+- Use it in conjunction with standard methods when necessary.
+
+- DON'T USE IT in the following
+  - **Using it for complex logic** – If a method has multiple lines of code, stick to regular methods

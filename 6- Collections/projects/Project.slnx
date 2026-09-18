@@ -1,3 +1,7 @@
 <Solution>
-
+<!-- file-based projects -->
+ <File Path="../Lister.cs"/>
+<!-- verso-based projects -->
+ <File Path="../Lister.verso"/>
+ <File Path="../Predicates.verso"/>
 </Solution>

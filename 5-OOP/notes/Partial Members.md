@@ -2,7 +2,7 @@
 
 - Primary Use Case: Partial types exist mainly to separate generated code from handwritten code.
 - ***they act like c++ header `.h`***
-- each member[except `classes`] has its own implementation but share the same use case and mechanism
+- each member(except `classes`) has its own implementation but share the same use case and mechanism
 
 ### Common Opinions & Best Practices <!-- markdownlint-disable-line MD001 -->
 

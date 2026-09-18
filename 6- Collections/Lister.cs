@@ -1,7 +1,15 @@
-// #:property PublishAOT=false
+#:property PublishAOT=false
 
-List<int> numbers = [1,2,3,4,5,];
+Predicate<int> isEvenAndDivisibleByFive = static x => (x % 2 == 0) && (x % 5 == 0);
+List<int> numbers = new List<int>(100);
+Random random = new();
+for(int i = 0; i < 100;i++)
+{
+    numbers.Add(random.Next(0,1000));
+}
 
-Console.WriteLine(numbers[1]);
-numbers.Add(6);
-Console.WriteLine(numbers[5]);
+// List<int> molester = numbers.FindAll(isEvenAndDivisibleByFive);
+// foreach (var item in molester)
+// {
+//     Console.WriteLine(item);
+// }

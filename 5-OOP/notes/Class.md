@@ -174,7 +174,7 @@ fields have the following description
 - local variable are defined at the method-level and the default in top-level programs
 - fields are class-level accessible and called **instance variable**
 
-## Properties [the setters and getters of Csharp]
+## Properties (the setters and getters of Csharp)
 
 - we knew how to initialize member in Csharp but alas we don't current have a method to control its value this is when properties comes handy which allow us to access members aka fields and manipulate it
 - we can't as we mentioned use members or fields publicly instead we must use it privately and doing so will prevent other classes from accessing and manipulating our value including the `Main` method so we depend on properties for this sole purpose
@@ -322,7 +322,7 @@ fields have the following description
     }
     ```
 
-- you can also [after Csharp 14] use `field` keyword as way to avoid using backing field if you want to process a field in one property knowing that the `field` is scoped to only the property you currently using as the following example
+- you can also (after Csharp 14) use `field` keyword as way to avoid using backing field if you want to process a field in one property knowing that the `field` is scoped to only the property you currently using as the following example
 
   - **Before Csharp 14**
 
@@ -408,41 +408,16 @@ fields have the following description
 - A method is defined the same way of defining typical one in a Top-level program which is `<access_modifier> <function_name>(parameter list){function body}`
 - Each object or class instance can use the same method with entirely different behavior
 
-### Expression Bodied Members
+## Expression Bodied Members
 
 - A form that replaces the standard code block way into more compact and readable expression or statement to certain class members which will be covered in this section
-- An Expression Bodied Member is a shorthand syntax in Csharp that allows defining simple methods, properties, or even constructors using the lambda arrow (`=>`) instead of curly braces `{ }`
-- The compiler then under the hood turn Expression Bodied member into full code block in the optimization phase
-- **An Analogy for that** is rather than typing full 5-line paragraph just to declare a meeting only type *"Meeting at 5 PM."*
+- An Expression Bodied Member is a shorthand syntax in c# that allows defining simple methods, properties, or even constructors using the lambda arrow (`=>`) instead of curly braces `{ }`
 
-#### Declaring  and Using Expression Bodied Members
+### Declaring  and Using Expression Bodied Methods Members
 
-1. Methods
+1. properties
 
-   - rather than typing a method like that
-
-   ```Csharp
-    class MathOperations
-    {
-        public int Square(int number)
-        {
-            return number * number;
-        }
-    }
-   ```
-
-   - we can just type
-
-    ```Csharp
-    class MathOperations
-    {
-        public int Square(int number) => number * number;
-    }
-    ```
-
-2. Properties
-
-    - rather than this
+- rather than this
 
     ```Csharp
     class Person
@@ -461,7 +436,7 @@ fields have the following description
     }
     ```
 
-    - make this
+- make this
 
     ```Csharp
     class Person
@@ -480,7 +455,7 @@ fields have the following description
     }
     ```
 
-3. Constructors
+1. Constructors <!-- markdownlint-disable-line MD029 -->
 
     - rather than this
 
@@ -507,9 +482,9 @@ fields have the following description
     }
     ```
 
-4. Finalizers
+2. Finalizers <!-- markdownlint-disable-line MD029 -->
 
-    - rather than this
+- rather than this
 
     ```Csharp
     class FileHandler
@@ -521,7 +496,7 @@ fields have the following description
     }
     ```
 
-    - make this
+- make this
 
     ```Csharp
     class FileHandler
@@ -530,7 +505,7 @@ fields have the following description
     }
     ```
 
-5. Indexers
+4. Indexers <!-- markdownlint-disable-line MD029 -->
 
 - Indexers allow objects to be indexed like arrays. Expression Bodied Members make indexers shorter when they contain a single return statement.
 
@@ -558,15 +533,6 @@ fields have the following description
         public int this[int index] => numbers[index];
     }
     ```
-
-#### Best Practices and Common Mistakes
-
-- Use Expression Bodied syntax for simple operations.
-- Keep code concise but still readable.
-- Use it in conjunction with standard methods when necessary.
-
-- DON'T USE IT in the following
-  - **Using it for complex logic** – If a method has multiple lines of code, stick to regular methods
 
 ## Inner Classes
 

@@ -1,7 +1,7 @@
 # List
 
 - A List\<T\> is generic collection that store element of any specific type like a list of strings or int or chars in linear sequence just like arrays and its size is dynamic
-- The difference between an array and a list is that a list is a dynamic array the grows over the time by the double [from 2 to 4 to 8 to 16..etc] and this dynamism allow us define a list without worrying about the size
+- The difference between an array and a list is that a list is a dynamic array the grows over the time by the double (from 2 to 4 to 8 to 16..etc) and this dynamism allow us define a list without worrying about the size
 - A simple list definition is `List<int> numbers = [];`
 
 > the \<T\> is a generic placeholder for the type wether it's `int`, `string` or even a class of yours
@@ -19,7 +19,9 @@
 ## Core Method
 
 - `Add(T item)`: add an Item to the end of the list
-- `Remove(T item)`: remove the first occurrence of a specific object from the list
+- `Remove(T item)`:
+  - remove the first occurrence of a specific object from the list
+  - return `true` if item got removed and `false` if Item not found or failed to be removed
 - `Insert(int index, T item)`: insert Item at the specified index
 - `Find(Predicate<T> match)`: Searches for an element that matches the condition specified by the predicate
 - `Sort()`: sort the elements in the entire list
@@ -39,3 +41,19 @@
   - if you know the approximate number of elements that the list will hold setting the initial size will improve the performance a lot as it ***avoid frequent resizing***
 - Using foreach
   - it offer a clear syntax for handling Lists
+
+## Working with List
+
+```C#
+var list_capacity = 12;
+List<int> myList = new List<int>(list_capacity);
+```
+
+### list manipulation
+
+- Add item and remove them
+
+```c#
+List<int> numbers = [1,2,3,4,5,];
+
+```
