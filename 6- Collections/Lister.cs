@@ -1,6 +1,7 @@
 #:property PublishAOT=false
 
 Predicate<int> isEvenAndDivisibleByFive = static x => (x % 2 == 0) && (x % 5 == 0);
+
 List<int> numbers = new List<int>(100);
 Random random = new();
 for(int i = 0; i < 100;i++)
@@ -13,3 +14,10 @@ for(int i = 0; i < 100;i++)
 // {
 //     Console.WriteLine(item);
 // }
+List<int> lessThanNumbers = numbers.Where(x => x < 100).ToList();
+
+foreach (var num in lessThanNumbers)
+{
+    Console.WriteLine(num);
+}
+

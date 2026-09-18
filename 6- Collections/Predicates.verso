@@ -1,6 +1,7 @@
 {
   "verso": "1.1",
   "metadata": {
+    "modified": "2026-09-19T12:22:45.0750521+00:00",
     "defaultKernel": "csharp",
     "activeLayout": {
       "extensionId": "verso.layout.notebook",
@@ -12,7 +13,7 @@
       "id": "af97a1f4-c08f-4a16-8def-f25f93f1fe5a",
       "type": "code",
       "language": "csharp",
-      "source": "// initializing the predicates\r\nPredicate\u003Cint\u003E isEvenAndDivisableByFive = static x =\u003E (x % 2 == 0) \u0026\u0026 (x % 5 == 0);\r\nisEvenAndDivisableByFive(11)",
+      "source": "// initializing the predicates\r\nPredicate\u003Cint\u003E isEvenAndDivisableByFive = static x =\u003E (x % 2 == 0) \u0026\u0026 (x % 5 == 0);\r\nisEvenAndDivisableByFive(11)\r\n",
       "outputs": [
         {
           "mimeType": "text/plain",
@@ -29,11 +30,11 @@
       "id": "e7ada51d-2765-4fe8-8f67-7ffdf2c8ca6c",
       "type": "code",
       "language": "csharp",
-      "source": "// A dummy list\r\nList\u003Cint\u003E numbers = new List\u003Cint\u003E(100);\r\nRandom random = new();\r\n// random assignment\r\nfor(int i = 0; i \u003C 100;i\u002B\u002B)\r\n{\r\n    numbers.Add(random.Next(0,1000));\r\n}\r\nnumbers.FindAll(isEvenAndDivisableByFive)",
+      "source": "// A dummy list\r\nList\u003Cint\u003E numbers = new List\u003Cint\u003E(100);\r\nRandom random = new();\r\n// random assignment\r\nfor(int i = 0; i \u003C 100;i\u002B\u002B)\r\n{\r\n    numbers.Add(random.Next(0,1000));\r\n}\r\nnumbers.FindAll(isEvenAndDivisableByFive)\r\nnumbers.",
       "outputs": [
         {
           "mimeType": "text/html",
-          "content": "\u003Cstyle\u003E.verso-obj-tree{--obj-bg:var(--vscode-editor-background,var(--verso-cell-output-background,#fff));--obj-fg:var(--vscode-editor-foreground,var(--verso-cell-output-foreground,#1e1e1e));--obj-border:var(--vscode-editorWidget-border,var(--verso-border-default,#e0e0e0));--obj-header-bg:var(--vscode-editorWidget-background,var(--verso-cell-background,#f5f5f5));--obj-hover:var(--vscode-list-hoverBackground,var(--verso-cell-hover-background,#f0f0f0));--obj-muted:var(--vscode-descriptionForeground,var(--verso-editor-line-number,#858585));--obj-accent:var(--vscode-textLink-foreground,var(--verso-accent-primary,#0078d4));--obj-summary-bg:var(--vscode-sideBar-background,var(--verso-cell-background,#f5f5f5));font-family:var(--verso-code-output-font-family,monospace);font-size:13px;color:var(--obj-fg);}.verso-obj-tree details.verso-obj-node{border:1px solid var(--obj-border);border-radius:3px;margin:2px 0;}.verso-obj-tree details.verso-obj-node\u003Esummary.verso-obj-summary{padding:3px 8px;cursor:pointer;list-style:none;background:var(--obj-summary-bg);display:flex;align-items:center;gap:4px;user-select:none;}.verso-obj-tree details.verso-obj-node\u003Esummary.verso-obj-summary::-webkit-details-marker{display:none;}.verso-obj-tree details.verso-obj-node\u003Esummary.verso-obj-summary::before{content:\u0027\\25B6\u0027;font-size:9px;color:var(--obj-muted);transition:transform 0.1s;}.verso-obj-tree details.verso-obj-node[open]\u003Esummary.verso-obj-summary::before{transform:rotate(90deg);}.verso-obj-tree summary.verso-obj-summary:hover{background:var(--obj-hover);}.verso-obj-tree .verso-obj-type{font-weight:600;color:var(--obj-accent);}.verso-obj-tree .verso-obj-count{color:var(--obj-muted);font-size:11px;}.verso-obj-tree table.verso-obj-table{border-collapse:collapse;width:100%;background:var(--obj-bg);color:var(--obj-fg);}.verso-obj-tree table.verso-obj-table th.verso-obj-th{text-align:left;padding:4px 10px;border-bottom:2px solid var(--obj-border);background:var(--obj-header-bg);font-weight:600;white-space:nowrap;}.verso-obj-tree table.verso-obj-table td.verso-obj-member{padding:3px 10px;border-bottom:1px solid var(--obj-border);color:var(--obj-muted);white-space:nowrap;vertical-align:top;font-size:12px;}.verso-obj-tree table.verso-obj-table td.verso-obj-value{padding:3px 10px;border-bottom:1px solid var(--obj-border);vertical-align:top;}.verso-obj-tree table.verso-obj-table tbody tr:hover{background:var(--obj-hover);}.verso-obj-tree .verso-obj-null{color:var(--obj-muted);font-style:italic;}.verso-obj-tree .verso-obj-cycle{color:var(--obj-muted);font-style:italic;}.verso-obj-tree .verso-obj-empty{color:var(--obj-muted);font-style:italic;}.verso-obj-tree .verso-obj-footer{padding:4px 10px;color:var(--obj-muted);font-size:11px;border-top:1px solid var(--obj-border);}\u003C/style\u003E\u003Cdiv class=\u0022verso-obj-tree\u0022\u003E\u003Cdetails class=\u0022verso-obj-node\u0022 open\u003E\u003Csummary class=\u0022verso-obj-summary\u0022\u003E\u003Cspan class=\u0022verso-obj-type\u0022\u003EList\u0026lt;Int32\u0026gt;\u003C/span\u003E\u003Cspan class=\u0022verso-obj-count\u0022\u003E (10 items)\u003C/span\u003E\u003C/summary\u003E\u003Ctable class=\u0022verso-obj-table\u0022\u003E\u003Cthead\u003E\u003Ctr\u003E\u003Cth class=\u0022verso-obj-th\u0022\u003EValue\u003C/th\u003E\u003C/tr\u003E\u003C/thead\u003E\u003Ctbody\u003E\u003Ctr\u003E\u003Ctd class=\u0022verso-obj-value\u0022\u003E380\u003C/td\u003E\u003C/tr\u003E\u003Ctr\u003E\u003Ctd class=\u0022verso-obj-value\u0022\u003E280\u003C/td\u003E\u003C/tr\u003E\u003Ctr\u003E\u003Ctd class=\u0022verso-obj-value\u0022\u003E410\u003C/td\u003E\u003C/tr\u003E\u003Ctr\u003E\u003Ctd class=\u0022verso-obj-value\u0022\u003E640\u003C/td\u003E\u003C/tr\u003E\u003Ctr\u003E\u003Ctd class=\u0022verso-obj-value\u0022\u003E60\u003C/td\u003E\u003C/tr\u003E\u003Ctr\u003E\u003Ctd class=\u0022verso-obj-value\u0022\u003E420\u003C/td\u003E\u003C/tr\u003E\u003Ctr\u003E\u003Ctd class=\u0022verso-obj-value\u0022\u003E430\u003C/td\u003E\u003C/tr\u003E\u003Ctr\u003E\u003Ctd class=\u0022verso-obj-value\u0022\u003E120\u003C/td\u003E\u003C/tr\u003E\u003Ctr\u003E\u003Ctd class=\u0022verso-obj-value\u0022\u003E480\u003C/td\u003E\u003C/tr\u003E\u003Ctr\u003E\u003Ctd class=\u0022verso-obj-value\u0022\u003E940\u003C/td\u003E\u003C/tr\u003E\u003C/tbody\u003E\u003C/table\u003E\u003C/details\u003E\u003C/div\u003E"
+          "content": "\u003Cstyle\u003E.verso-obj-tree{--obj-bg:var(--vscode-editor-background,var(--verso-cell-output-background,#fff));--obj-fg:var(--vscode-editor-foreground,var(--verso-cell-output-foreground,#1e1e1e));--obj-border:var(--vscode-editorWidget-border,var(--verso-border-default,#e0e0e0));--obj-header-bg:var(--vscode-editorWidget-background,var(--verso-cell-background,#f5f5f5));--obj-hover:var(--vscode-list-hoverBackground,var(--verso-cell-hover-background,#f0f0f0));--obj-muted:var(--vscode-descriptionForeground,var(--verso-editor-line-number,#858585));--obj-accent:var(--vscode-textLink-foreground,var(--verso-accent-primary,#0078d4));--obj-summary-bg:var(--vscode-sideBar-background,var(--verso-cell-background,#f5f5f5));font-family:var(--verso-code-output-font-family,monospace);font-size:13px;color:var(--obj-fg);}.verso-obj-tree details.verso-obj-node{border:1px solid var(--obj-border);border-radius:3px;margin:2px 0;}.verso-obj-tree details.verso-obj-node\u003Esummary.verso-obj-summary{padding:3px 8px;cursor:pointer;list-style:none;background:var(--obj-summary-bg);display:flex;align-items:center;gap:4px;user-select:none;}.verso-obj-tree details.verso-obj-node\u003Esummary.verso-obj-summary::-webkit-details-marker{display:none;}.verso-obj-tree details.verso-obj-node\u003Esummary.verso-obj-summary::before{content:\u0027\\25B6\u0027;font-size:9px;color:var(--obj-muted);transition:transform 0.1s;}.verso-obj-tree details.verso-obj-node[open]\u003Esummary.verso-obj-summary::before{transform:rotate(90deg);}.verso-obj-tree summary.verso-obj-summary:hover{background:var(--obj-hover);}.verso-obj-tree .verso-obj-type{font-weight:600;color:var(--obj-accent);}.verso-obj-tree .verso-obj-count{color:var(--obj-muted);font-size:11px;}.verso-obj-tree table.verso-obj-table{border-collapse:collapse;width:100%;background:var(--obj-bg);color:var(--obj-fg);}.verso-obj-tree table.verso-obj-table th.verso-obj-th{text-align:left;padding:4px 10px;border-bottom:2px solid var(--obj-border);background:var(--obj-header-bg);font-weight:600;white-space:nowrap;}.verso-obj-tree table.verso-obj-table td.verso-obj-member{padding:3px 10px;border-bottom:1px solid var(--obj-border);color:var(--obj-muted);white-space:nowrap;vertical-align:top;font-size:12px;}.verso-obj-tree table.verso-obj-table td.verso-obj-value{padding:3px 10px;border-bottom:1px solid var(--obj-border);vertical-align:top;}.verso-obj-tree table.verso-obj-table tbody tr:hover{background:var(--obj-hover);}.verso-obj-tree .verso-obj-null{color:var(--obj-muted);font-style:italic;}.verso-obj-tree .verso-obj-cycle{color:var(--obj-muted);font-style:italic;}.verso-obj-tree .verso-obj-empty{color:var(--obj-muted);font-style:italic;}.verso-obj-tree .verso-obj-footer{padding:4px 10px;color:var(--obj-muted);font-size:11px;border-top:1px solid var(--obj-border);}\u003C/style\u003E\u003Cdiv class=\u0022verso-obj-tree\u0022\u003E\u003Cdetails class=\u0022verso-obj-node\u0022 open\u003E\u003Csummary class=\u0022verso-obj-summary\u0022\u003E\u003Cspan class=\u0022verso-obj-type\u0022\u003EList\u0026lt;Int32\u0026gt;\u003C/span\u003E\u003Cspan class=\u0022verso-obj-count\u0022\u003E (11 items)\u003C/span\u003E\u003C/summary\u003E\u003Ctable class=\u0022verso-obj-table\u0022\u003E\u003Cthead\u003E\u003Ctr\u003E\u003Cth class=\u0022verso-obj-th\u0022\u003EValue\u003C/th\u003E\u003C/tr\u003E\u003C/thead\u003E\u003Ctbody\u003E\u003Ctr\u003E\u003Ctd class=\u0022verso-obj-value\u0022\u003E70\u003C/td\u003E\u003C/tr\u003E\u003Ctr\u003E\u003Ctd class=\u0022verso-obj-value\u0022\u003E200\u003C/td\u003E\u003C/tr\u003E\u003Ctr\u003E\u003Ctd class=\u0022verso-obj-value\u0022\u003E860\u003C/td\u003E\u003C/tr\u003E\u003Ctr\u003E\u003Ctd class=\u0022verso-obj-value\u0022\u003E680\u003C/td\u003E\u003C/tr\u003E\u003Ctr\u003E\u003Ctd class=\u0022verso-obj-value\u0022\u003E640\u003C/td\u003E\u003C/tr\u003E\u003Ctr\u003E\u003Ctd class=\u0022verso-obj-value\u0022\u003E670\u003C/td\u003E\u003C/tr\u003E\u003Ctr\u003E\u003Ctd class=\u0022verso-obj-value\u0022\u003E870\u003C/td\u003E\u003C/tr\u003E\u003Ctr\u003E\u003Ctd class=\u0022verso-obj-value\u0022\u003E430\u003C/td\u003E\u003C/tr\u003E\u003Ctr\u003E\u003Ctd class=\u0022verso-obj-value\u0022\u003E570\u003C/td\u003E\u003C/tr\u003E\u003Ctr\u003E\u003Ctd class=\u0022verso-obj-value\u0022\u003E540\u003C/td\u003E\u003C/tr\u003E\u003Ctr\u003E\u003Ctd class=\u0022verso-obj-value\u0022\u003E650\u003C/td\u003E\u003C/tr\u003E\u003C/tbody\u003E\u003C/table\u003E\u003C/details\u003E\u003C/div\u003E"
         }
       ]
     },
@@ -61,5 +62,46 @@
         }
       ]
     }
-  ]
+  ],
+  "layouts": {
+    "verso.layout.dashboard:dashboard": {
+      "cells": {
+        "af97a1f4-c08f-4a16-8def-f25f93f1fe5a": {
+          "row": 0,
+          "col": 0,
+          "width": 6,
+          "height": 4,
+          "visible": true
+        },
+        "6044f8aa-caae-4a21-a766-6096d93414e3": {
+          "row": 0,
+          "col": 6,
+          "width": 6,
+          "height": 4,
+          "visible": true
+        },
+        "e7ada51d-2765-4fe8-8f67-7ffdf2c8ca6c": {
+          "row": 4,
+          "col": 0,
+          "width": 6,
+          "height": 4,
+          "visible": true
+        },
+        "07b8ea25-bf84-42f9-a45c-eae21c0fe8fb": {
+          "row": 4,
+          "col": 6,
+          "width": 6,
+          "height": 4,
+          "visible": true
+        },
+        "24ec7dc6-b263-4f5b-a3ba-bde52e51d174": {
+          "row": 8,
+          "col": 0,
+          "width": 6,
+          "height": 4,
+          "visible": true
+        }
+      }
+    }
+  }
 }
